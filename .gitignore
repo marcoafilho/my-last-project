@@ -13,3 +13,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Removing backup files from the documentation.
+/doc/*/*/*.bak
