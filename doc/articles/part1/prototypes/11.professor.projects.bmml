@@ -1,0 +1,49 @@
+<mockup version="1.0" skin="sketch" measuredW="1330" measuredH="677" mockupW="800" mockupH="600">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="530" y="77" w="800" h="600" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>My%20Last%20Project%0Ahttp%3A//my-last-project.dcc.ufba.br</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Title" x="545" y="175" w="288" h="-1" measuredW="282" measuredH="50" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>My%20Last%20Project</text>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Label" x="810" y="619" w="-1" h="-1" measuredW="143" measuredH="21" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>My%20Last%20Project%20%A9%202013</text>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::LinkBar" x="810" y="598" w="-1" h="-1" measuredW="105" measuredH="21" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>About%20us%2C%20Blog</text>
+      </controlProperties>
+    </control>
+    <control controlID="23" controlTypeID="com.balsamiq.mockups::LinkBar" x="849" y="189" w="-1" h="-1" measuredW="215" measuredH="21" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Dashboard%2C%20Projects%2C%20Students</text>
+      </controlProperties>
+    </control>
+    <control controlID="24" controlTypeID="com.balsamiq.mockups::DataGrid" x="545" y="278" w="759" h="234" measuredW="647" measuredH="145" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Name%2C%20Assigned%2C%20Due%20at%2C%20Actions%0ADatamining%20in%20the%20new%20world%2C%201%2C%202013-02-02%2C%20%5BEdit%5D%20%5BDestroy%5D%0ACustomize%20your%20database%2C%200%2C%202013-02-22%2C%20%5BEdit%5D%20%5BDestroy%5D%0AUnderstanding%20why%20a%20thesis%20should%20have%20a%20huge%20and%20still%20doesn%27t%20say...%2C%208%2C%202013-04-02%2C%20%5BEdit%5D%20%5BDestroy%5D%0AExploring%20El%20Dorado%2C%2035%2C%20%2C%20%5BEdit%5D%20%5BDestroy%5D%0A%7B75L%2C%200R%2C%2025%2C%200C%7D</text>
+      </controlProperties>
+    </control>
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::SubTitle" x="545" y="240" w="-1" h="-1" measuredW="92" measuredH="33" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Projects</text>
+      </controlProperties>
+    </control>
+    <control controlID="27" controlTypeID="com.balsamiq.mockups::Button" x="545" y="534" w="-1" h="-1" measuredW="94" measuredH="27" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>New%20project</text>
+      </controlProperties>
+    </control>
+    <control controlID="28" controlTypeID="com.balsamiq.mockups::Button" x="1239" y="182" w="-1" h="-1" measuredW="71" measuredH="27" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Settings</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

@@ -39,8 +39,8 @@
     </control>
     <control controlID="9" controlTypeID="com.balsamiq.mockups::Button" x="797" y="397" w="102" h="48" measuredW="64" measuredH="27" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
-        <href>02.guest-sign-up%26bm%3B02.guest-sign-up.bmml%26bm%3B02.guest-sign-up.bmml%26bm%3B02.guest-sign-up.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22267%2C320%2C369%2C368%22%20href%3D%2202.guest-sign-up.bmml%22%20alt%3D%2202.guest-sign-up%22%20id%3D%229%22/%3E</map>
+        <href>02.guest.sign-up%26bm%3B02.guest.sign-up.bmml%26bm%3B02.guest.sign-up.bmml%26bm%3B02.guest.sign-up.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22267%2C320%2C369%2C368%22%20href%3D%2202.guest.sign-up.bmml%22%20alt%3D%2202.guest.sign-up%22%20id%3D%229%22/%3E</map>
         <text>Sign%20up</text>
       </controlProperties>
     </control>

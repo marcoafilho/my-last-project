@@ -35,19 +35,19 @@
         <text>Schedule</text>
       </controlProperties>
     </control>
-    <control controlID="33" controlTypeID="com.balsamiq.mockups::DataGrid" x="559" y="278" w="727" h="153" measuredW="456" measuredH="145" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::DataGrid" x="559" y="278" w="727" h="153" measuredW="544" measuredH="145" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Task%2C%20Due%20date%2C%20Duration%2C%20Progress%0ARead%20Alice%20Adventures%20in%20Wonderland%2C%202013-01-01%2C%204%20days%2C%20%0ABuy%20milk%2C%202013-02-01%2C%201%20hour%2C%0AFix%20that%20bug%2C%202013-03-01%2C%203%20months%0AWrite%20the%20thesis%2C%202013-04-01%2C%20Lifetime%0A%7B60L%2C%2015C%2C%200%2C%2025%7D</text>
+        <text>Task%2C%20Due%20date%2C%20Duration%2C%20Progress%2C%20Actions%0ARead%20Alice%20Adventures%20in%20Wonderland%2C%202013-01-01%2C%204%20days%2C%20%2C%20%5BEdit%5D%20%5BDestroy%5D%0ABuy%20milk%2C%202013-02-01%2C%201%20hour%2C%20%2C%20%5BEdit%5D%20%5BDestroy%5D%0AFix%20that%20bug%2C%202013-03-01%2C%203%20months%2C%20%2C%20%5BEdit%5D%20%5BDestroy%5D%0AWrite%20the%20thesis%2C%202013-04-01%2C%20Lifetime%2C%20%2C%20%5BEdit%5D%20%5BDestroy%5D%0A%7B60L%2C%2015C%2C%200%2C%2025%7D</text>
       </controlProperties>
     </control>
-    <control controlID="34" controlTypeID="com.balsamiq.mockups::ProgressBar" x="1144" y="305" w="-1" h="-1" measuredW="100" measuredH="20" zOrder="8" locked="false" isInGroup="-1">
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::ProgressBar" x="1075" y="304" w="-1" h="-1" measuredW="100" measuredH="20" zOrder="8" locked="false" isInGroup="-1">
       <controlProperties>
         <scrollBarValue>99</scrollBarValue>
       </controlProperties>
     </control>
-    <control controlID="35" controlTypeID="com.balsamiq.mockups::ProgressBar" x="1144" y="337" w="-1" h="-1" measuredW="100" measuredH="20" zOrder="9" locked="false" isInGroup="-1"/>
-    <control controlID="36" controlTypeID="com.balsamiq.mockups::ProgressBar" x="1144" y="367" w="-1" h="-1" measuredW="100" measuredH="20" zOrder="10" locked="false" isInGroup="-1"/>
-    <control controlID="37" controlTypeID="com.balsamiq.mockups::ProgressBar" x="1144" y="396" w="-1" h="-1" measuredW="100" measuredH="20" zOrder="11" locked="false" isInGroup="-1">
+    <control controlID="35" controlTypeID="com.balsamiq.mockups::ProgressBar" x="1075" y="334" w="-1" h="-1" measuredW="100" measuredH="20" zOrder="9" locked="false" isInGroup="-1"/>
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::ProgressBar" x="1075" y="365" w="-1" h="-1" measuredW="100" measuredH="20" zOrder="10" locked="false" isInGroup="-1"/>
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::ProgressBar" x="1075" y="395" w="-1" h="-1" measuredW="100" measuredH="20" zOrder="11" locked="false" isInGroup="-1">
       <controlProperties>
         <scrollBarValue>0</scrollBarValue>
       </controlProperties>

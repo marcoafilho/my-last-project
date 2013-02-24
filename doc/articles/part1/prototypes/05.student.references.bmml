@@ -30,7 +30,7 @@
         <text>Dashboard%2C%20References%2C%20Schedule</text>
       </controlProperties>
     </control>
-    <control controlID="24" controlTypeID="com.balsamiq.mockups::DataGrid" x="545" y="278" w="759" h="207" measuredW="535" measuredH="145" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="24" controlTypeID="com.balsamiq.mockups::DataGrid" x="545" y="302" w="759" h="207" measuredW="535" measuredH="145" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Name%2C%20Author%2C%20Read%20at%2C%20Relevance%2C%20Actions%0ADom%20Casmurro%2C%20Machado%20de%20Assis%2C%202013-01-01%2C%201%2C%20%5BShow%5D%20%5BEdit%5D%20%5BDestroy%5D%0AThe%20Gunslinger%2C%20Stephen%20King%2C%202013-01-01%2C%201%2C%20%5BShow%5D%20%5BEdit%5D%20%5BDestroy%5D%0AAlice%20in%20Wonderland%2C%20Lewis%20Caroll%2C%202013-01-01%2C%205%2C%20%5BShow%5D%20%5BEdit%5D%20%5BDestroy%5D%0AO%20Menino%20no%20Espelho%2C%20Fernando%20Sabino%2C%202013-01-01%2C%201%2C%20%5BShow%5D%20%5BEdit%5D%20%5BDestroy%5D%0A%7B75L%2C%2025%2C%200C%7D</text>
       </controlProperties>
@@ -40,7 +40,7 @@
         <text>References</text>
       </controlProperties>
     </control>
-    <control controlID="27" controlTypeID="com.balsamiq.mockups::Button" x="545" y="500" w="-1" h="-1" measuredW="112" measuredH="27" zOrder="8" locked="false" isInGroup="-1">
+    <control controlID="27" controlTypeID="com.balsamiq.mockups::Button" x="545" y="524" w="-1" h="-1" measuredW="112" measuredH="27" zOrder="8" locked="false" isInGroup="-1">
       <controlProperties>
         <text>New%20reference</text>
       </controlProperties>
@@ -48,6 +48,11 @@
     <control controlID="28" controlTypeID="com.balsamiq.mockups::SearchBox" x="1229" y="244" w="-1" h="-1" measuredW="65" measuredH="25" zOrder="9" locked="false" isInGroup="-1">
       <controlProperties>
         <text>search</text>
+      </controlProperties>
+    </control>
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::Link" x="545" y="273" w="-1" h="-1" measuredW="159" measuredH="21" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Suggested%20references%20%283%29</text>
       </controlProperties>
     </control>
   </controls>
