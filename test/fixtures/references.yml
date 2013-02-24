@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  relevance: 1
+  title: MyString
+  publisher: MyString
+  year: 1
+  volume: MyString
+  issue: MyString
+  isbn: 1
+  accessed_at: 2013-02-24 20:03:54
+  read_at: 2013-02-24 20:03:54
+
+two:
+  user: 
+  relevance: 1
+  title: MyString
+  publisher: MyString
+  year: 1
+  volume: MyString
+  issue: MyString
+  isbn: 1
+  accessed_at: 2013-02-24 20:03:54
+  read_at: 2013-02-24 20:03:54

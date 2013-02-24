@@ -2,10 +2,17 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
 
+gem 'devise' # User authentication
+gem 'acts-as-taggable-on', '~> 2.3.1'
+
+# Templating engines
+gem 'slim-rails', '1.1.0'
+gem 'twitter-bootstrap-rails', '2.2.4'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'pg', '0.14.1'
 
 
 # Gems used only for assets and not required
