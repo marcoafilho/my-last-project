@@ -3,10 +3,11 @@
 
 en:
   layouts:
-    application:
-      navbar:
-        sign_in: Sign in
-        sign_up: Sign up
+    navbars:
+      guests:
+        navbar:
+          sign_in: Sign in
+          sign_up: Sign up
   pages:
     home:
       welcome:
