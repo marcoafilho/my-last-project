@@ -1,4 +1,11 @@
 MyLastProject::Application.routes.draw do
+  get "pages/about_us"
+  get "pages/blog"
+
+  devise_for :users
+  
+  root to: "pages#home"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

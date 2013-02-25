@@ -2,4 +2,19 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  layouts:
+    application:
+      navbar:
+        sign_in: Sign in
+        sign_up: Sign up
+  pages:
+    home:
+      welcome:
+        title: Welcome to My Last Project
+        greetings: The time has come and there is no turning back! You need to defeat this last dragon!
+        about: My last project is a tool that empowers professors and students to collaborate through an intuitive and beautiful platform in order to organize the necessary resources to create a full fledged graduation's thesis.
+        as_a_professor: As a professor you will be able to keep track of your students activities.
+        as_a_student: As a student you will have complete understanding of your schedule and references.
+        start_now: Go to arms! Sign up now or sign in to your account.
+        sign_up: Sign up
+        sign_in: Sign in

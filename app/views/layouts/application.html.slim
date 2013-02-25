@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title My Last Project
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+body
+  .navbar.navbar-inverse.navbar-static-top
+    .navbar-inner
+      = link_to "My Last Project", root_url, class: "brand"
+      ul.nav.pull-right
+        = link_to t('.navbar.sign_up'), new_user_registration_path, class: "mgn-small btn btn-small btn-success"
+        = link_to t('.navbar.sign_in'), new_user_session_path, class: "mgn-small btn btn-small btn-primary"
+  .container  
+    = yield
+  footer.footer
+    .offset6
+      = link_to t('footer.about_us'), pages_about_us_path
+      |  | 
+      = link_to t('footer.blog'), pages_blog_path
+      br
+      | My Last Project © 2013

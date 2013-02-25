@@ -1,0 +1,17 @@
+= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+  fieldset
+    legend= t('.sign_in')
+    = f.label :email
+    = f.email_field :email, autofocus: true
+
+    = f.label :password
+    = f.password_field :password
+
+    - if devise_mapping.rememberable?
+      = f.label :remember_me, class: "checkbox" do
+        = t('devise.sessions.remember_me')
+        = f.check_box :remember_me
+
+    = f.submit t('.sign_in'), class: "btn"
+
+= render "devise/shared/links"

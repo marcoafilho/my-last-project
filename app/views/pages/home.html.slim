@@ -1,0 +1,20 @@
+.row
+.row
+  .span10.offset1
+    .presentation.hero-unit
+      h1
+        = t('.welcome.title')
+      p
+      p 
+        = t('.welcome.greetings')
+      p 
+        = t('.welcome.about')
+      p
+        = t('.welcome.as_a_professor')
+        br
+        = t('.welcome.as_a_student')
+      p
+        = t('.welcome.start_now')
+      p.center-text
+        = link_to t('.welcome.sign_up'), new_user_registration_path, class: "btn btn-large btn-success mgn-medium"
+        = link_to t('.welcome.sign_in'), new_user_session_path, class: "btn btn-large btn-primary mgn-medium"

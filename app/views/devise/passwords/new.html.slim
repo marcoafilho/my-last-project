@@ -1,0 +1,10 @@
+= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "form-inline" }) do |f|
+  fieldset
+    legend Forgot your password?
+
+  = devise_error_messages!
+
+  = f.email_field :email, autofocus: true, placeholder: "Email"
+  = f.submit "Send me reset password instructions", class: "btn mgn-small"
+
+= render "devise/shared/links"
