@@ -2,12 +2,17 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  dashboards:
+    professor:
+      title: Your dashboard
   layouts:
     navbars:
       guests:
         navbar:
           sign_in: Sign in
           sign_up: Sign up
+      professors:
+        dashboard: Dashboard
   pages:
     home:
       welcome:

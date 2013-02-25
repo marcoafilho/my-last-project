@@ -1,5 +1,9 @@
 module ApplicationHelper
   
+  def current_path(path)
+    "active" if request.path == path
+  end
+  
   def navbar_for(user)
     if current_user && current_user.role.name.eql?("Student")
       render "layouts/navbars/students"
@@ -10,4 +14,12 @@ module ApplicationHelper
     end
   end
   
+  def alert_class(type)
+    case type
+    when :notice then "alert-success"
+    when :alert then "alert-error"
+    else
+      type
+    end
+  end
 end

@@ -11,7 +11,9 @@ body
     .navbar-inner
       = link_to "My Last Project", root_url, class: "brand"
       = navbar_for(current_user)
-  .container  
+  .navbar-container-margin
+  .container
+    = render "layouts/flash", flash: flash
     = yield
   footer.footer
     .offset6

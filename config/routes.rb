@@ -4,6 +4,8 @@ MyLastProject::Application.routes.draw do
 
   devise_for :users
   
+  resource :dashboard
+  
   root to: "pages#home"
 
   # The priority is based upon order of creation:

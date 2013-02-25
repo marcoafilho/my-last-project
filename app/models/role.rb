@@ -1,6 +1,8 @@
 class Role < ActiveRecord::Base
   ADMIN = "Admin"
-  AVAILABLE = [ADMIN, "Professor", "Student"]
+  PROFESSOR = "Professor"
+  STUDENT = "Student"
+  AVAILABLE = [ADMIN, PROFESSOR, STUDENT]
   
   attr_accessible :name
 end

@@ -1,0 +1,4 @@
+- if current_user.role.name == Role::PROFESSOR
+  = render "professor"
+- elsif current_user.role.name == Role::STUDENT
+  = render "student"

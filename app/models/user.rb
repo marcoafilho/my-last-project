@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_one :project
+  has_many :projects
+  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable

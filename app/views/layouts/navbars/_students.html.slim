@@ -1,5 +1,6 @@
 ul.nav
-  li= link_to t('.dashboard'), '#'
+  li class=current_path(dashboard_path)
+    = link_to t('.dashboard'), dashboard_path
   li= link_to t('.references'), '#'
   li= link_to t('.schedule'), '#'
 ul.nav.pull-right
