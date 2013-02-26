@@ -1,10 +1,10 @@
 MyLastProject::Application.routes.draw do
   get "pages/about_us"
-  get "pages/blog"
 
   devise_for :users
   
   resource :dashboard
+  resources :projects
   
   root to: "pages#home"
 

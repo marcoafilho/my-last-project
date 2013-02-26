@@ -1,3 +1,6 @@
 .nav.pull-right
-  = link_to t('.navbar.sign_up'), new_user_registration_path, class: "mgn-small btn btn-small btn-success"
-  = link_to t('.navbar.sign_in'), new_user_session_path, class: "mgn-small btn btn-small btn-primary"
+  .nav-sign-in
+    = form_for(@user, url: session_path(User), hatml: { class: "form-inline" }) do |f|
+      = f.email_field :email, placeholder: t('.email'), autofocus: true, class: "input-small"
+      = f.password_field :password, placeholder: t('.password'), class: "input-small"
+      = f.submit t('.navbar.sign_in'), class: "btn btn-small btn-primary"

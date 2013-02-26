@@ -5,9 +5,22 @@ en:
   dashboards:
     professor:
       title: Your dashboard
+  footer:
+    home: Home
+    about_us: About us
+    sign_up: Sign up
+  general:
+    actions:
+      title: Actions
+      destroy: Destroy
+      edit: Edit
+      new: New
+      save: Save changes
   layouts:
     navbars:
       guests:
+        email: Email
+        password: Password
         navbar:
           sign_in: Sign in
           sign_up: Sign up
@@ -24,3 +37,8 @@ en:
         start_now: Go to arms! Sign up now or sign in to your account.
         sign_up: Sign up
         sign_in: Sign in
+  projects:
+    new:
+      title: New project
+    edit:
+      title: "Edit project: %{name}"

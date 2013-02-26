@@ -20,7 +20,8 @@ body
       = link_to t('footer.home'), root_path
       |  | 
       = link_to t('footer.about_us'), pages_about_us_path
-      |  | 
-      = link_to t('footer.blog'), pages_blog_path
+      - if !current_user
+        |  | 
+        = link_to t('footer.sign_up'), new_user_registration_path
       br
       | My Last Project © 2013

@@ -36,7 +36,7 @@ en:
       destroyed: "Bye! Your account was successfully cancelled. We hope to see you again soon."
       edit:
         cancel: Cancel my account
-        edit: Edit %{resource}
+        edit: "Edit %{resource}"
         helper:
           change_password: (leave blank if you don't want to change it)
           update_profile: (we need your current password to confirm your changes)

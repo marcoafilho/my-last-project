@@ -1,0 +1,10 @@
+h1= @project.name
+h5
+  = Project.human_attribute_name(:due_at) + ": " 
+  = @project.due_at.strftime("%Y-%m-%d")
+
+b= Project.human_attribute_name(:summary) + ": " 
+p= @project.summary
+
+br
+= link_to t('general.actions.back'), :back

@@ -5,8 +5,8 @@ ul.nav
     = link_to t('.references'), '#'
   li
     = link_to t('.students'), '#'
-  li
-    = link_to t('.projects'), '#'
+  li class=current_path(projects_path)
+    = link_to t('.projects'), projects_path
 ul.nav.pull-right
   li.dropdown
     a href="#" class="dropdown-toggle" data-toggle="dropdown"
