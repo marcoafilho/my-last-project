@@ -16,8 +16,8 @@
     = f.label :password_confirmation
     = f.password_field :password_confirmation
     
-    = f.label :role_id
-    = f.select :role_id, Role.where("name != ?", Role::ADMIN).collect{ |role| [role.name, role.id]}
+    = f.label :type
+    = f.select :type, User::AVAILABLE_ROLES
     
     div
       = f.submit t('.sign_up'), class: "btn"

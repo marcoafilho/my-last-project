@@ -12,7 +12,7 @@ table.table.table-striped
       tr
         th.span7= link_to project.name, project_path(project)
         th.span3= project.users.count
-        th.span2= project.due_at.strftime("%Y-%m-%d")
+        th.span2= project.due_at.strftime("%Y-%m-%d") if project.due_at
         th.span1
           .btn-group
             = link_to t('general.actions.edit'), edit_project_path(project), class: "btn btn-small"

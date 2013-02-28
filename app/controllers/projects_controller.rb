@@ -34,7 +34,7 @@ class ProjectsController < ApplicationController
   
   private
   def allowed_users
-    if current_user.role.name != Role::PROFESSOR
+    if current_user.type != "Professor"
       flash[:error] = i18n.t('permissions.lack')
       redirect_to dashboard_path
     end

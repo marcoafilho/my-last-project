@@ -1,4 +1,4 @@
-- if current_user.role.name == Role::PROFESSOR
+- if current_user.type == "Professor"
   = render "professor"
-- elsif current_user.role.name == Role::STUDENT
+- elsif current_user.type == "Student"
   = render "student"

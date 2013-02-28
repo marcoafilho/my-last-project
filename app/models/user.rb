@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-  has_one :project
-  has_many :projects
+  AVAILABLE_ROLES = ["Professor", "Student"]
   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -9,11 +8,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :role_id
-  # attr_accessible :title, :body
-  
-  belongs_to :role
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :type
   
   validates :name, presence: true
-  validates :role_id, presence: true
 end

@@ -2,8 +2,14 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
 
-gem 'devise' # User authentication
-gem 'acts-as-taggable-on', '~> 2.3.1'
+# User authentication
+gem 'devise'
+
+# File uploader
+gem 'carrierwave'
+
+# Database adaptation
+gem 'faker'
 
 # Templating engines
 gem 'slim-rails', '1.1.0'

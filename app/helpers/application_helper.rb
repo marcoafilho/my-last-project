@@ -5,9 +5,9 @@ module ApplicationHelper
   end
   
   def navbar_for(user)
-    if current_user && current_user.role.name.eql?("Student")
+    if current_user && current_user.type.eql?("Student")
       render "layouts/navbars/students"
-    elsif current_user && current_user.role.name.eql?("Professor")
+    elsif current_user && current_user.type.eql?("Professor")
       render "layouts/navbars/professors"
     else
       render "layouts/navbars/guests"
