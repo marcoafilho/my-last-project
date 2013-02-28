@@ -13,10 +13,6 @@ MyLastProject::Application.routes.draw do
   
   resources :resources
   
-  namespace :resources do
-    resources :articles
-  end
-  
   root to: "pages#home"
 
   # The priority is based upon order of creation:

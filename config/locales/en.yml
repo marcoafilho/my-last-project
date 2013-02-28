@@ -66,16 +66,21 @@ en:
     show:
       students: "Students (%{count})"
   resources:
-    articles:
-      form:
-        tabs:
-          general: 
-            title: General info
-          quotations: 
-            title: Quotations
-          notes: 
-            title: Notes
-      new:
-        title: New article
+    create:
+      successful: "Your resource was succesfully created."
+    edit:
+      title: "Edit %{resource_type}"
+    form:
+      tabs:
+        general: 
+          title: General info
+        quotations: 
+          title: Quotations
+        notes: 
+          title: Notes
     index:
       title: Resources
+    new:
+      title: "New %{resource_type}"
+    update:
+      successful: "Your resource was succesfully updated."
