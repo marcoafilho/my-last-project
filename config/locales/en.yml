@@ -5,6 +5,12 @@ en:
   dashboards:
     professor:
       title: Your dashboard
+      notifications:
+        title: Notifications
+        timestamp: "%{timestamp} ago"
+      students:
+        title: My students
+        send_email: Send an email
     student:
       project:
         title: You need a final project!
@@ -33,6 +39,9 @@ en:
           sign_up: Sign up
       professors:
         dashboard: Dashboard
+  notifications:
+    projects:
+      subscription: A new student has subscribed to one of your projects.
   pages:
     home:
       welcome:

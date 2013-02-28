@@ -1,13 +1,32 @@
 .row
   h1= t('.title')
 .row
+  .dashboard-container.span5
+    .dashboard-title
+      h4= t('.notifications.title')
+    .dashboard-content
+      - if @notifications.size > 0
+        - @notifications.each do |notification|
+          table.table
+            tbody
+              tr
+                td= t(notification.message)
+                td= t('.notifications.timestamp', timestamp: time_ago_in_words(notification.created_at))
+      - else
+        span.no-data= t('.notifications.no_notifications')
+        
   .dashboard-container.span3
     .dashboard-title
-      h4= t('.alert')
+      h4= t('.students.title')
     .dashboard-content
-      | content placeholder
-  .dashboard-container.span3
-    .dashboard-title
-      h4= t('.students')
-    .dashboard-content
-      | content placeholder
+      - if @students.size > 0
+        - @students.each do |student|
+          table.table
+            tbody
+              tr
+                td= t(student.name)
+                td
+                  a href="mailto: #{student.email}" target="_blank"
+                    b.icon-envelope title="#{t('.students.send_email')}" &nbsp;
+      - else
+        span.no-data= t('.students.no_students')

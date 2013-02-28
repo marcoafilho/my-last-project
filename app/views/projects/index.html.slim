@@ -30,7 +30,6 @@ h1= t('.title')
           th.span7= Project.human_attribute_name(:title)
           th.span1= t('general.actions.title')
       tbody
-
           - projects.each do |project|
             tr
               th.span3= project.project_title

@@ -15,5 +15,9 @@
 }
 
 .dashboard-content {
+  font-size: 12px;
   padding: 5px 10px;
+  table tr td {
+    overflow: hidden;
+  }
 }

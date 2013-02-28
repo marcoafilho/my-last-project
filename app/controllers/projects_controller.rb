@@ -1,6 +1,4 @@
 class ProjectsController < ApplicationController
-  before_filter :allow_user
-  
   def index
     if current_user.professor?
       @projects = current_user.projects.all
