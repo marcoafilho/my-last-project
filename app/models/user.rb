@@ -2,6 +2,11 @@ class User < ActiveRecord::Base
   AVAILABLE_ROLES = ["Professor", "Student"]
   
   has_many :notifications
+  has_many :resources
+  has_many :articles
+  has_many :books
+  has_many :conferences
+  has_many :electronics
   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

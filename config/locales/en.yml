@@ -29,6 +29,7 @@ en:
       edit: Edit
       new: New
       save: Save changes
+    upload_file: Upload file
   layouts:
     navbars:
       guests:
@@ -64,3 +65,15 @@ en:
       title: "Edit project: %{title}"
     show:
       students: "Students (%{count})"
+  resources:
+    articles:
+      form:
+        tabs:
+          general: 
+            title: General info
+          quotations: 
+            title: Quotations
+          notes: 
+            title: Notes
+      new:
+        title: New article

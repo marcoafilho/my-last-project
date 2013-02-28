@@ -1,0 +1,19 @@
+= f.label :relevance
+= f.number_field :relevance, min: 0, max: 5, value: (@resource.relevance || 0)
+
+= f.label :title
+= f.text_field :title
+
+= f.label :publisher
+= f.text_field :publisher
+
+= f.label :year
+= f.text_field :year
+
+= f.label :read_at
+= f.text_field :read_at
+
+div
+= f.label :file
+= f.file_field :file
+= f.hidden_field :file_cache

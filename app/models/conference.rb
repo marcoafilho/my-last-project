@@ -1,0 +1,2 @@
+class Conference < Resource
+end

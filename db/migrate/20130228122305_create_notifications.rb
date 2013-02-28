@@ -6,5 +6,7 @@ class CreateNotifications < ActiveRecord::Migration
       
       t.datetime :created_at, null: false
     end
+    
+    add_index :notifications, :user_id
   end
 end

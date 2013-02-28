@@ -1,8 +1,8 @@
 ul.nav
   li class=current_path(dashboard_path)
     = link_to t('.dashboard'), dashboard_path
-  li
-    = link_to t('.references'), '#'
+  li class=current_path(resources_path)
+    = link_to t('.resources'), resources_path
   li
     = link_to t('.students'), '#'
   li class=current_path(projects_path)

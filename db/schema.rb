@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130228122850) do
+ActiveRecord::Schema.define(:version => 20130228130819) do
 
   create_table "notifications", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -30,6 +30,25 @@ ActiveRecord::Schema.define(:version => 20130228122850) do
 
   add_index "projects", ["professor_id"], :name => "index_projects_on_professor_id"
   add_index "projects", ["title"], :name => "index_projects_on_title"
+
+  create_table "resources", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "relevance"
+    t.string   "title"
+    t.string   "publisher"
+    t.string   "year"
+    t.string   "file"
+    t.string   "issue"
+    t.string   "volume"
+    t.integer  "isbn"
+    t.date     "accessed_at"
+    t.date     "read_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "resources", ["title"], :name => "index_resources_on_title"
+  add_index "resources", ["user_id"], :name => "index_resources_on_user_id"
 
   create_table "users", :force => true do |t|
     t.integer  "project_id"

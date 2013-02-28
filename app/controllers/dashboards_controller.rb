@@ -14,6 +14,6 @@ class DashboardsController < ApplicationController
   end
   
   def load_student_resources
-    
+    @notifications = current_user.notifications.order("created_at DESC")
   end
 end

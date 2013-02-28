@@ -4,10 +4,17 @@ MyLastProject::Application.routes.draw do
   devise_for :users
   
   resource :dashboard
+  
   resources :projects do
     member do
       put 'subscribe'
     end
+  end
+  
+  resources :resources
+  
+  namespace :resources do
+    resources :articles
   end
   
   root to: "pages#home"
