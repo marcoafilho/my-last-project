@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.4.1)  28 FEB 2013 00:54
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.4.1)  28 FEB 2013 15:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -261,7 +261,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <13> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
 
-Underfull \hbox (badness 10000) in paragraph at lines 53--62
+Underfull \hbox (badness 10000) in paragraph at lines 52--61
 \OT1/pcr/m/n/10.95 professors.id, professors.name, professors.email, projects.i
 d,
  []
@@ -270,65 +270,77 @@ d,
 
 {/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 87.
+(Font)              <10.95> on input line 86.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 96.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 95.
 
 [2]
-LaTeX Font Info:    Try loading font information for OMS+pcr on input line 134.
+LaTeX Font Info:    Try loading font information for OMS+pcr on input line 133.
 
  (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omspcr.fd
 File: omspcr.fd 
 )
 LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 134.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 133.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 139.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 138.
 
-Overfull \hbox (16.68327pt too wide) in paragraph at lines 154--154
+Overfull \hbox (16.68327pt too wide) in paragraph at lines 153--153
  []    \OT1/pcr/m/n/10.95 INNER JOIN "users" ON "users"."id" = "materials"."use
 r_id"[] 
  []
 
 
-Overfull \hbox (29.82326pt too wide) in paragraph at lines 154--154
+Overfull \hbox (29.82326pt too wide) in paragraph at lines 153--153
  []      \OT1/pcr/m/n/10.95 AND "materials".title = 'Grass-roots tertiary utili
 sation'[] 
  []
 
-[3]
-Overfull \hbox (46.24808pt too wide) in paragraph at lines 228--228
+[3] [4]
+Overfull \hbox (46.24808pt too wide) in paragraph at lines 227--227
 []      \OT1/pcr/m/n/10.95 message varchar := 'projects.subscription.professor.
 notification';[] 
  []
 
-[4]
-Overfull \hbox (19.96811pt too wide) in paragraph at lines 228--228
+
+Overfull \hbox (19.96811pt too wide) in paragraph at lines 227--227
 []      \OT1/pcr/m/n/10.95 SELECT INTO user_id \"projects\".\"user_id\" FROM \"
 projects\"[] 
  []
 
-(./views.bbl) [5] (./views.aux) ) 
+
+Overfull \hbox (6.82813pt too wide) in paragraph at lines 273--273
+[]    \OT1/pcr/m/n/10.95 "isbn", "issue", "publisher", "read_at", "relevance", 
+"title",[] 
+ []
+
+
+Overfull \hbox (6.82813pt too wide) in paragraph at lines 273--273
+[]  \OT1/pcr/m/n/10.95 SELECT "authors".* FROM "authors" INNER JOIN "authors_re
+sources"[] 
+ []
+
+[5] [6] [7] (./views.aux) ) 
 Here is how much of TeX's memory you used:
- 2613 strings out of 493633
- 37290 string characters out of 3143378
- 103071 words of memory out of 3000000
- 5865 multiletter control sequences out of 15000+200000
+ 2611 strings out of 493633
+ 37282 string characters out of 3143378
+ 104079 words of memory out of 3000000
+ 5866 multiletter control sequences out of 15000+200000
  26143 words of font info for 53 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
  37i,8n,28p,712b,310s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/local/texlive/2011/texmf-dist/fonts/enc/
-dvips/base/8r.enc}</usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr8.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/courier/ucrr8
-a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></us
-r/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/t
-exlive/2011/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/201
-1/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on views.pdf (5 pages, 97923 bytes).
+{/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/
+base/8r.enc}</usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr8.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+y10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
+</usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/loca
+l/texlive/2011/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive
+/2011/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2011/texm
+f-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on views.pdf (7 pages, 104334 bytes).
 PDF statistics:
- 49 PDF objects out of 1000 (max. 8388607)
- 34 compressed objects within 1 object stream
+ 57 PDF objects out of 1000 (max. 8388607)
+ 40 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

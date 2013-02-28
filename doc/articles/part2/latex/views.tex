@@ -43,8 +43,7 @@ projeto final de qualidade.
 Na sua segunda versão, My Last Project oferece uma camada a mais de segurança 
 e performance ao usar \emph{views}, abordadas na seção \ref{sec:views}; a 
 seção \ref{sec:indexes} apresenta os atributos que foram indexados no banco e 
-os efeitos dessa decisão são explicados na seção \ref{sec:optimization}; 
-... por fim é apresentado planejamento.
+os efeitos dessa decisão são explicados na seção \ref{sec:optimization}; Na seção \ref{sec:stored_procedures} explica-se sobre a funcionalidade de notificações e como \emph{stored\_procedures} e \emph{triggers} auxiliaram na conclusão da tarefa; Os controles de transção são vistos na seção \ref{sec:transactions} e por fim, em \ref{sec:management} a atual situação do projeto é apresentada.
 
 \section{Views} \label{sec:views}
 
@@ -237,7 +236,73 @@ O controle de transações permite que a integridade dos dados se mantenham no ban
 
 No framework utilizado para o desenvolvimento da aplicação My Last Project todos os comandos que escrevem no banco de dados são involucrados em um transação. Isso garante por exemplo, que, se algum professor tentar alterar o material de um estudante ao mesmo tempo que este o edita, as transações serão realizadas na mesma ordem em que foram requeridas.
 
-\bibliographystyle{sbc}
-\bibliography{sbc-template}
+O exemplo a seguir exemplifica como o sistema se comporta ao salvar um material com autores. É necessário manipular dados de três tabelas e por isso uma transação é necessária.
+
+\small\begin{verbatim}
+BEGIN
+  INSERT INTO "resources" ("accessed_at", "created_at", "file", 
+    "isbn", "issue", "publisher", "read_at", "relevance", "title", 
+    "type", "updated_at", "user_id", "volume", "year") 
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, 
+      $13, $14) 
+    RETURNING "id"  [["accessed_at", nil], ["file", nil], 
+    ["isbn", nil], ["issue", ""], ["publisher", "Macmillan"], 
+    ["read_at", nil], ["relevance", 5], ["user_id", 1],
+    ["title", "Alice's Adventures in Wonderland"],
+    ["year", "1865"]], ["volume", ""], ["type", "Article"], 
+    ["created_at", Thu, 28 Feb 2013 16:20:52 UTC +00:00], 
+    ["updated_at", Thu, 28 Feb 2013 16:20:52 UTC +00:00];
+
+  SELECT "authors".* FROM "authors" INNER JOIN "authors_resources" 
+    ON "authors"."id" = "authors_resources"."author_id" 
+    WHERE "authors_resources"."resource_id" IS NULL;
+
+  SELECT "authors".* FROM "authors" 
+    WHERE "authors"."name" = 'Lewis Caroll' LIMIT 1
+
+  INSERT INTO "authors" 
+    ("created_at", "name", "updated_at") VALUES ($1, $2, $3) 
+    RETURNING "id"  [
+      ["created_at", Thu, 28 Feb 2013 16:20:53 UTC +00:00], 
+      ["name", "Lewis Caroll"], 
+      ["updated_at", Thu, 28 Feb 2013 16:20:53 UTC +00:00]]
+
+  INSERT INTO "authors_resources" ("resource_id", "author_id") 
+    VALUES (6, 4) RETURNING "author_id"
+COMMIT
+\end{verbatim}
+
+\section{Gerenciamento} \label{sec:management}
+
+A ferramenta utilizada para gerenciar o projeto de software é o Github. A url 
+para visualização das tarefas é 
+https://github.com/marcoafilho/my-last-project/issues. A ferramenta não conta com funcionalidades avançadas, serve de suporte para o desenvolvimento.
+
+A metodologia seguida é baseada nos modelos de gerenciamento de projetos open source. São definidos objetivos para cada versão e as tarefas para alcançar os objetivos são descritas. No total, o software está planejado para ser desenvolvido em seis versões e se encontra atualmente na segunda, a etapa de adição de recursos avançandos de banco de dados. Todas as versões são estimadas em uma semana, sendo encerradas sempre na quinta-feira. A seguir estão descritas as versões, contemplando o que já foi desenvolvido, o que está atrasado e o que virá a seguir.
+
+\begin{description}
+  \item[Versão 1.0: Interface, Mapeamento e Modelagem] \hfill \\
+  Era esperado dessa versão, a criação de protótipos para a interface do sistema e a modelagem do SGBD.
+  
+  Como produtos dessa versão deveriam ser gerados um artigo e uma apresentação da primeira fase do sistema. Esta versão está atrasada, pois os produtos esperados pela finalização desta ainda estão em construção.
+  \item[Versão 2.0: Views, Optimizataion, Stored Procedures, Triggers, Transactions] \hfill \\
+  É esperado dessa versão que a aplicação já acesse os recursos do banco de dados. Funcionalides como \emph{log in}, gerenciamento de projetos e de materiais devem estar funcionais.
+  
+  Além disso, é esperado que a aplicação contenha recursos avançados de banco de dados, como a implementação de visões, índices, \emph{stored procedures}, \emph{triggers} e \emph{transactions}.
+  
+  O presente artigo, unido à apresentação e ao software parcialmente funcional são os produtos desta versão. Esta versão foi concluída com sucesso.
+  \item[Versão 2.3] \hfill \\
+  Além de serem implementadas técnicas de recuperação e backup, as funcionalidades básicas do software devem ser implementadas.
+  \item[Versão 2.5] \hfill \\
+  Etapa de implementação de práticas de segurança e autorização.
+  \item[Versão 2.8] \hfill \\
+  Os recursos serão exportados para outros formatos de dados, XML por exemplo.
+  \item[Versão 3.0] \hfill \\
+  Versão final do software. Consta da preparação de um relatório de testes realizados com a aplicação.
+  
+  É esperada nessa versão que o software esteja completamente desenvolvido e que esteja seguro.
+  
+  Os produtos dessa versão são: Um relatório de testes mais um artigo, um seminário e a publicação do software em um link externo.
+\end{description}
 
 \end{document}
