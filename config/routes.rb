@@ -4,7 +4,11 @@ MyLastProject::Application.routes.draw do
   devise_for :users
   
   resource :dashboard
-  resources :projects
+  resources :projects do
+    member do
+      put 'subscribe'
+    end
+  end
   
   root to: "pages#home"
 

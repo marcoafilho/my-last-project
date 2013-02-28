@@ -1,8 +1,10 @@
 class ProjectsController < ApplicationController
-  before_filter :allowed_users
-  
   def index
-    @projects = current_user.projects.all
+    if current_user.professor?
+      @projects = current_user.projects.all
+    else
+      @professor_projects = ProfessorProject.order(:id)
+    end
   end
 
   def show
@@ -17,8 +19,7 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.new(params[:project])
     
     if @project.save
-      flash[:notice] = I18n.t('.success')
-      redirect_to projects_path
+      redirect_to projects_path, notice: I18n.t('projects.create.successful')
     else
       render :new
     end
@@ -30,13 +31,25 @@ class ProjectsController < ApplicationController
   
   def update
     @project = current_user.projects.find(params[:id])
+    
+    if @project.update_attributes params[:project]
+      redirect_to projects_path, notice: I18n.t('projects.update.successful')
+    else
+      render :edit
+    end
   end
   
-  private
-  def allowed_users
-    if current_user.type != "Professor"
-      flash[:error] = i18n.t('permissions.lack')
+  def destroy
+    @project = current_user.projects.find(params[:id])
+    @project.destroy
+  end
+  
+  def subscribe
+    @project = Project.find(params[:id])
+    if current_user.subscribe(@project)
       redirect_to dashboard_path
+    else
+      redirect_to projects_path, alert: I18n.t('errors.save')
     end
   end
 end

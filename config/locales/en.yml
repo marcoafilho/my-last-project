@@ -5,6 +5,12 @@ en:
   dashboards:
     professor:
       title: Your dashboard
+    student:
+      project:
+        title: You need a final project!
+        greetings: Let us help you find one now!
+  errors:
+    lack_permissions: You lack the necessary permissions to access this page.
   footer:
     home: Home
     about_us: About us
@@ -13,6 +19,7 @@ en:
     actions:
       title: Actions
       destroy: Destroy
+      destroy_alert: "Are you sure?"
       edit: Edit
       new: New
       save: Save changes
@@ -38,7 +45,13 @@ en:
         sign_up: Sign up
         sign_in: Sign in
   projects:
+    create:
+      successful: "Your project was succesfully created."
+    index:
+      title: Projects
     new:
       title: New project
     edit:
-      title: "Edit project: %{name}"
+      title: "Edit project: %{title}"
+    show:
+      students: "Students (%{count})"

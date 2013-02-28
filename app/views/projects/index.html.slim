@@ -1,21 +1,40 @@
 h1= t('.title')
 
-table.table.table-striped
-  thead
-    tr
-      th.span7= Project.human_attribute_name(:name)
-      th.span3= t('.assigned_students')
-      th.span2= Project.human_attribute_name(:due_at)
-      th.span1= t('general.actions.title')
-  tbody
-    - @projects.each do |project|
+- if current_user.professor?
+  table.table.table-striped
+    thead
       tr
-        th.span7= link_to project.name, project_path(project)
-        th.span3= project.users.count
-        th.span2= project.due_at.strftime("%Y-%m-%d") if project.due_at
-        th.span1
-          .btn-group
-            = link_to t('general.actions.edit'), edit_project_path(project), class: "btn btn-small"
-            = link_to t('general.actions.destroy'), project_path(project), method: :delete, class: "btn btn-small btn-danger"
+        th.span7= Project.human_attribute_name(:title)
+        th.span3= t('.assigned_students')
+        th.span2= Project.human_attribute_name(:due_at)
+        th.span1= t('general.actions.title')
+    tbody
+      - @projects.each do |project|
+        tr
+          th.span7= link_to project.title, project_path(project)
+          th.span3= project.students.count
+          th.span2= project.due_at.strftime("%Y-%m-%d") if project.due_at
+          th.span1
+            .btn-group
+              = link_to t('general.actions.edit'), edit_project_path(project), class: "btn btn-small"
+              = link_to t('general.actions.destroy'), project_path(project), data: { confirm: t("general.actions.destroy_alert") }, method: :delete, class: "btn btn-small btn-danger"
 
-= link_to t('general.actions.new'), new_project_path, class: "btn btn-primary"
+  = link_to t('general.actions.new'), new_project_path, class: "btn btn-primary"
+
+- if current_user.student?
+  - @professor_projects.group_by(&:name).each do |name, projects|
+    h3= name
+    table.table.table-striped
+      thead
+        tr
+          th.span7= Project.human_attribute_name(:title)
+          th.span1= t('general.actions.title')
+      tbody
+
+          - projects.each do |project|
+            tr
+              th.span3= project.project_title
+              th.span7= project.project_summary
+              th.span1
+                = link_to t('general.actions.subscribe'), subscribe_project_path(project.project_id), method: :put, class: "btn btn-small btn-success"
+  = link_to t('general.actions.back'), :back

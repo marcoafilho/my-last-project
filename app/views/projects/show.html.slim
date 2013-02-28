@@ -1,10 +1,22 @@
-h1= @project.name
+h1= @project.title
 h5
   = Project.human_attribute_name(:due_at) + ": " 
-  = @project.due_at.strftime("%Y-%m-%d")
+  = @project.due_at.strftime("%Y-%m-%d") if @project.due_at
 
 b= Project.human_attribute_name(:summary) + ": " 
 p= @project.summary
+
+h4
+  = t('.students', count: @project.students.count)
+- if @project.students.count > 0
+  table.table
+    thead
+      tr
+        th.span7= Student.human_attribute_name(:name)
+    tbody
+      - @project.students.each do |student|
+        tr
+          td= student.name
 
 br
 = link_to t('general.actions.back'), :back

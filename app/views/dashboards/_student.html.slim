@@ -1,0 +1,12 @@
+.row
+.row
+  - unless current_user.project_id
+    .span10.offset1
+      .presentation.hero-unit
+        h1.center-text
+          = t('.project.title')
+        br
+        p.center-text
+          = t('.project.greetings')
+        p.center-text
+          = link_to t('.project.subscribe'), projects_path, class: "btn btn-large btn-success mgn-medium"

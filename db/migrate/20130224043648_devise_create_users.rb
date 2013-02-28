@@ -5,7 +5,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       # User extra information
       t.string :name, null: false, default: ""
-      t.string :type
+      t.string :type, null: false
       
       ## Database authenticatable
       t.string :email,              null: false, default: ""

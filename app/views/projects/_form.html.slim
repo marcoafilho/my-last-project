@@ -1,12 +1,12 @@
 = form_for @project do |f|
-  = f.label :name
-  = f.text_field :name, autofocus: true, class: "input-xxlarge"
+  = f.label :title
+  = f.text_field :title, autofocus: true, class: "input-xxlarge"
   
   = f.label :summary
   = f.text_area :summary, rows: 5, class: "input-xxlarge"
   
   = f.label :due_at
-  = f.date_select :due_at, include_blank: true
+  = f.text_field :due_at, include_blank: true, class: "input-small datepicker"
   
   .form-actions
     = f.submit t('general.actions.save'), class: "mgn-medium btn btn-primary"

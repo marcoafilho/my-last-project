@@ -1,13 +1,15 @@
 class CreateProjects < ActiveRecord::Migration
   def change
     create_table :projects do |t|
-      t.references :user
-      t.string :title
+      t.references :professor
+      t.string :title, null: false
       t.text :summary
-      t.datetime :due_at
+      t.date :due_at
 
       t.timestamps
     end
-    add_index :projects, :user_id
+
+    add_index :projects, :title
+    add_index :projects, :professor_id
   end
 end

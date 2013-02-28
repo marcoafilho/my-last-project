@@ -11,4 +11,13 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :type
   
   validates :name, presence: true
+  validates :type, presence: true
+  
+  User.class_eval do
+    User::AVAILABLE_ROLES.each do |role|
+      define_method :"#{role.downcase}?" do
+        type.eql? role
+      end
+    end
+  end
 end
