@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130228130819) do
+ActiveRecord::Schema.define(:version => 20130228143348) do
+
+  create_table "authors", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "authors", ["name"], :name => "index_authors_on_name", :unique => true
+
+  create_table "authors_resources", :id => false, :force => true do |t|
+    t.integer  "author_id",   :null => false
+    t.integer  "resource_id", :null => false
+    t.datetime "created_at"
+  end
 
   create_table "notifications", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -35,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20130228130819) do
     t.integer  "user_id"
     t.integer  "relevance"
     t.string   "title"
+    t.string   "type"
     t.string   "publisher"
     t.string   "year"
     t.string   "file"
