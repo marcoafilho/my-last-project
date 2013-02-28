@@ -25,9 +25,9 @@
         <text>Dashboard%2C%20Projects%2C%20Students%2C%20References</text>
       </controlProperties>
     </control>
-    <control controlID="24" controlTypeID="com.balsamiq.mockups::DataGrid" x="553" y="305" w="751" h="85" measuredW="319" measuredH="85" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="24" controlTypeID="com.balsamiq.mockups::DataGrid" x="553" y="305" w="751" h="85" measuredW="289" measuredH="85" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Name%2C%20Remaining%20Tasks%2C%20Progress%2C%20Actions%0AAlice%2C%204%2C%20%2C%20%5BEdit%5D%20%5BDestroy%5D%0ABob%2C%200%2C%20%2C%20%5BEdit%5D%20%5BDestroy%5D%0A%7B60L%2C%200R%2C%2015%2C%2025C%7D</text>
+        <text>Name%2C%20Remaining%20Tasks%2C%20Progress%2C%20Actions%0AAlice%2C%204%2C%20%2C%20%0ABob%2C%200%2C%20%2C%20%0A%7B60L%2C%200R%2C%2015%2C%2025C%7D</text>
       </controlProperties>
     </control>
     <control controlID="26" controlTypeID="com.balsamiq.mockups::SubTitle" x="545" y="240" w="-1" h="-1" measuredW="99" measuredH="33" zOrder="6" locked="false" isInGroup="-1">
@@ -45,13 +45,13 @@
         <text>Settings</text>
       </controlProperties>
     </control>
-    <control controlID="32" controlTypeID="com.balsamiq.mockups::Icon" x="1153" y="328" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="9" locked="false" isInGroup="-1">
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::Icon" x="1199" y="329" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="9" locked="false" isInGroup="-1">
       <controlProperties>
         <color>0</color>
         <icon>GMailIcon%7Csmall</icon>
       </controlProperties>
     </control>
-    <control controlID="33" controlTypeID="com.balsamiq.mockups::Icon" x="1153" y="359" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="10" locked="false" isInGroup="-1">
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::Icon" x="1199" y="359" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="10" locked="false" isInGroup="-1">
       <controlProperties>
         <icon>GMailIcon%7Csmall</icon>
       </controlProperties>
@@ -62,9 +62,9 @@
         <scrollBarValue>100</scrollBarValue>
       </controlProperties>
     </control>
-    <control controlID="36" controlTypeID="com.balsamiq.mockups::DataGrid" x="553" y="437" w="751" h="85" measuredW="319" measuredH="85" zOrder="13" locked="false" isInGroup="-1">
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::DataGrid" x="553" y="437" w="751" h="85" measuredW="289" measuredH="85" zOrder="13" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Name%2C%20Remaining%20Tasks%2C%20Progress%2C%20Actions%0AAlice%2C%204%2C%20%2C%20%5BEdit%5D%20%5BDestroy%5D%0ABob%2C%200%2C%20%2C%20%5BEdit%5D%20%5BDestroy%5D%0A%7B60L%2C%200R%2C%2015%2C%2025C%7D</text>
+        <text>Name%2C%20Remaining%20Tasks%2C%20Progress%2C%20Actions%0AAlice%2C%204%2C%20%2C%0ABob%2C%200%2C%20%2C%0A%7B60L%2C%200R%2C%2015%2C%2025C%7D</text>
       </controlProperties>
     </control>
     <control controlID="37" controlTypeID="com.balsamiq.mockups::Label" x="553" y="405" w="-1" h="-1" measuredW="164" measuredH="21" zOrder="14" locked="false" isInGroup="-1">
@@ -72,13 +72,13 @@
         <text>Datamining%20in%20the%20new%20world</text>
       </controlProperties>
     </control>
-    <control controlID="38" controlTypeID="com.balsamiq.mockups::Icon" x="1153" y="459" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="15" locked="false" isInGroup="-1">
+    <control controlID="38" controlTypeID="com.balsamiq.mockups::Icon" x="1199" y="460" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="15" locked="false" isInGroup="-1">
       <controlProperties>
         <color>0</color>
         <icon>GMailIcon%7Csmall</icon>
       </controlProperties>
     </control>
-    <control controlID="39" controlTypeID="com.balsamiq.mockups::Icon" x="1153" y="490" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="16" locked="false" isInGroup="-1">
+    <control controlID="39" controlTypeID="com.balsamiq.mockups::Icon" x="1199" y="490" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="16" locked="false" isInGroup="-1">
       <controlProperties>
         <icon>GMailIcon%7Csmall</icon>
       </controlProperties>
