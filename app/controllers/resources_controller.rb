@@ -6,6 +6,8 @@ class ResourcesController < ApplicationController
   def new
     @resource = current_user.resources.new(type: params[:resource_type])
     @resource.authors.build
+    @resource.quotations.build
+    @resource.notes.build
   end
   
   def create

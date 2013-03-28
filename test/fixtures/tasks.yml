@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  student: 
+  title: MyString
+  progress: 
+  starts_at: 2013-03-27 23:53:02
+  ends_at: 2013-03-27 23:53:02
+
+two:
+  student: 
+  title: MyString
+  progress: 
+  starts_at: 2013-03-27 23:53:02
+  ends_at: 2013-03-27 23:53:02

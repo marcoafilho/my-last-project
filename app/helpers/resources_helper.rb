@@ -8,4 +8,12 @@ module ResourcesHelper
       render "electronic_fields", f: form
     end
   end
+  
+  def display_authors(resource)
+    if resource.authors.size > 3
+      resource.authors.first.name + " et al."
+    else
+      resource.authors.collect(&:name).join(', ')
+    end
+  end
 end

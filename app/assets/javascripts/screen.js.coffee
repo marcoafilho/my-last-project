@@ -11,7 +11,7 @@ jQuery ->
       "<label for='resource_authors_attributes_" + new_id + "_name'>Name:</label>" +
       "<input id='resource_authors_attributes_" + new_id + "_name' name='resource[authors_attributes]["+ new_id + "][name]' size='30' type='text'>" +
       "<input id='resource_authors_attributes_" + new_id + "__destroy' name='resource[authors_attributes]["+ new_id + "][_destroy]' type='hidden' value='false'>" +
-      "<a href='#' class='nested-remove-link'>Remove</a>"
+      "<a href='#' class='nested-remove-link btn btn-small btn-danger mgn-small mgn-input'>Remove</a>"
       "</div>"
 
     $(content).insertBefore(this))

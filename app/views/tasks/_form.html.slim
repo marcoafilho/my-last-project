@@ -1,0 +1,16 @@
+= form_for task do |f|
+  = f.label :title
+  = f.text_field :title, autofocus: true
+  
+  = f.label :progress
+  = f.number_field :progress, min: 0, max: 100, step: 10, class: "input-small"
+  
+  = f.label :starts_at
+  = f.text_field :starts_at, include_blank: true, class: "input-small datepicker"
+  
+  = f.label :ends_at
+  = f.text_field :ends_at, include_blank: true, class: "input-small datepicker"
+  
+  .form-actions
+    = f.submit t('general.actions.save'), class: "mgn-medium btn btn-primary"
+    = link_to t('general.actions.back'), :back, class: "mgn-medium btn"

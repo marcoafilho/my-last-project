@@ -1,10 +1,10 @@
 \documentclass[12pt]{article}
 
-\usepackage{interface}
+\usepackage{sbc-template}
 
 \usepackage{graphicx,url}
 
-%\usepackage[brazil]{babel}   
+\usepackage[brazil]{babel}   
 \usepackage[latin1]{inputenc}  
 
      
@@ -16,139 +16,139 @@
 
 
 \address{Instituto de Matemática -- Universidade Federal da Bahia
-  (UFRGS)\\
+  (UFBA)\\
   Av. Adhemar de Barros S/N -- 40.170-110 -- Salvador -- BA -- Brazil
-  \email{\{marco062\}@dcc.ufba.br}
+  \email{marco062@dcc.ufba.br}
 }
 
 \begin{document} 
 
 \maketitle
 
-\begin{abstract}
-  This meta-paper describes the style to be used in articles and short papers
-  for SBC conferences. For papers in English, you should add just an abstract
-  while for the papers in Portuguese, we also ask for an abstract in
-  Portuguese (``resumo''). In both cases, abstracts should not have more than
-  10 lines and must be in the first page of the paper.
-\end{abstract}
-     
 \begin{resumo} 
-  Este meta-artigo descreve o estilo a ser usado na confecção de artigos e
-  resumos de artigos para publicação nos anais das conferências organizadas
-  pela SBC. É solicitada a escrita de resumo e abstract apenas para os artigos
-  escritos em português. Artigos em inglês deverão apresentar apenas abstract.
-  Nos dois casos, o autor deve tomar cuidado para que o resumo (e o abstract)
-  não ultrapassem 10 linhas cada, sendo que ambos devem estar na primeira
-  página do artigo.
+28\% dos estudantes de graduação justificam que não conseguem terminar o projeto de conclusão de curso por causa do tempo. Outros fatores que os impedem de terminar o curso são a dificuldade de acesso aos textos (24\%) e a falta de comunicação com o orientador (4\%). O presente artigo propõe uma plataforma para auxiliar estudantes nessa etapa da graduação. São apresentadas as interfaces, a modelagem entidade-relacionamento e o mapeamento para o banco de dados utilizado.
 \end{resumo}
 
+\section{Introdução}
 
-\section{General Information}
+A dificuldade constantemente apresentada por estudantes para finalizar seus respectivos projetos finais de curso é causada em sua maior parte (28\% dos casos) pela falta de tempo. Outras razões que dificultam a escrita da monografia é o acesso aos textos (24\%) e a falta de comunicação com o orientador (4\%) \cite{farias:07}.
 
-All full papers and posters (short papers) submitted to some SBC conference,
-including any supporting documents, should be written in English or in
-Portuguese. The format paper should be A4 with single column, 3.5 cm for upper
-margin, 2.5 cm for bottom margin and 3.0 cm for lateral margins, without
-headers or footers. The main font must be Times, 12 point nominal size, with 6
-points of space before each paragraph. Page numbers must be suppressed.
+Com o objetivo de reduzir os problemas acima citados, foi criada a plataforma My Last Project, que, através de um ambiente colaborativo para professores e alunos, propõe uma metodologia de organização e de planejamento de projetos de conclusão de curso. A plataforma My Last Project é um ambiente unificado, onde estudantes podem registrar os seus materiais, fichá-los e apresentá-los para os seus professores. 
 
-Full papers must respect the page limits defined by the conference.
-Conferences that publish just abstracts ask for \textbf{one}-page texts.
+O presente artigo apresenta a etapa inicial de desenvolvimento do projeto: a etapa de concepção de interfaces (visto na seção \ref{sec:interface}); a seção \ref{sec:modeling} aborda sobre a modelagem relacional do sistema, em \ref{sec:mapping} é apresentado o mapeamento da modelagem em um SGBD; por fim, na seção \ref{sec:management} são definidos os prazos esperados para a finalização do sistema.
 
-\section{First Page} \label{sec:firstpage}
+\section{Interface} \label{sec:interface}
 
-The first page must display the paper title, the name and address of the
-authors, the abstract in English and ``resumo'' in Portuguese (``resumos'' are
-required only for papers written in Portuguese). The title must be centered
-over the whole page, in 16 point boldface font and with 12 points of space
-before itself. Author names must be centered in 12 point font, bold, all of
-them disposed in the same line, separated by commas and with 12 points of
-space after the title. Addresses must be centered in 12 point font, also with
-12 points of space after the authors' names. E-mail addresses should be
-written using font Courier New, 10 point nominal size, with 6 points of space
-before and 6 points of space after.
+Para uma concepção inicial do projeto foram utilizados o conceito de \emph{wireframes}. Um \emph{wireframe} é uma ferramenta utilizada por \emph{designers} de interação e apresenta funcionalidades do sistema sem necessariamente desenvolvê-las. \emph{Wireframes} enfocam no tipo de informação que deve ser apresentada, nas regras para apresentar certos tipos de informação e o efeito de diferentes cenários.
 
-The abstract and ``resumo'' (if is the case) must be in 12 point Times font,
-indented 0.8cm on both sides. The word \textbf{Abstract} and \textbf{Resumo},
-should be written in boldface and must precede the text.
+Antes de qualquer etapa de desenvolvimento do sistema foi feita primeiro a concepção do que era necessário para cada página através de uma wireframe. O \emph{wireframe} pode não se parecer com a página no seu estado final de desenvolvimento, mas em geral, os dados que estavam no \emph{wireframe} original continuam sendo vistos na página em sua versão final. A seguir descrevemos as funcionalidades presentes no sistema e alguns \emph{wireframes} que representam a funcionalidade.
 
-\section{CD-ROMs and Printed Proceedings}
+\subsection{Registro de usuários}
 
-In some conferences, the papers are published on CD-ROM while only the
-abstract is published in the printed Proceedings. In this case, authors are
-invited to prepare two final versions of the paper. One, complete, to be
-published on the CD and the other, containing only the first page, with
-abstract and ``resumo'' (for papers in Portuguese).
-
-\section{Sections and Paragraphs}
-
-Section titles must be in boldface, 13pt, flush left. There should be an extra
-12 pt of space before each title. Section numbering is optional. The first
-paragraph of each section should not be indented, while the first lines of
-subsequent paragraphs should be indented by 1.27 cm.
-
-\subsection{Subsections}
-
-The subsection titles must be in boldface, 12pt, flush left.
-
-\section{Figures and Captions}\label{sec:figs}
-
-
-Figure and table captions should be centered if less than one line
-(Figure~\ref{fig:exampleFig1}), otherwise justified and indented by 0.8cm on
-both margins, as shown in Figure~\ref{fig:exampleFig2}. The caption font must
-be Helvetica, 10 point, boldface, with 6 points of space before and after each
-caption.
+Usuário não registrados podem criar uma conta no sistema. A figura \ref{fig:guest.sign-up} apresenta um \emph{wireframe} de cadastro de usuários. Os usuários são divididos em dois tipos: Professores e Estudantes. Cada um desses tipos de usuário tem sua própria função no sistema que serão descritos posteriormente nas outras subseções.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=.5\textwidth]{fig1.jpg}
-\caption{A typical figure}
-\label{fig:exampleFig1}
+\includegraphics[width=.5\textwidth]{02-guest-sign-up.jpg}
+\caption{\emph{Wireframe} para cadastro de usuários}
+\label{fig:guest.sign-up}
 \end{figure}
+
+\subsection{Cadastro de projetos}
+
+O único tipo de usuário capaz de criar projetos são professores, que geralmente fornecem uma temática para o projeto, onde estudantes podem acessar uma lista com todos os projetos e seus respectivos professores e selecionar o tema para o seu projeto.
+
+Para que um estudante possa usar todas as funcionalidades oferecidas pelo sistema é necessário que ele inscreva-se em um projeto. Só assim, ele estará liberado para definir cronogramas e cadastrar material de referência. A seleção de um projeto final pode ser visto no \emph{wireframe} representado na figura \ref{fig:student.pick-project}.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=.3\textwidth]{fig2.jpg}
-\caption{This figure is an example of a figure caption taking more than one
-  line and justified considering margins mentioned in Section~\ref{sec:figs}.}
-\label{fig:exampleFig2}
+\includegraphics[width=.5\textwidth]{10-student-pick-project.jpg}
+\caption{\emph{Wireframe} para seleção de projeto final.}
+\label{fig:student.pick-project}
 \end{figure}
 
-In tables, try to avoid the use of colored or shaded backgrounds, and avoid
-thick, doubled, or unnecessary framing lines. When reporting empirical data,
-do not use more decimal digits than warranted by their precision and
-reproducibility. Table caption must be placed before the table (see Table 1)
-and the font used must also be Helvetica, 10 point, boldface, with 6 points of
-space before and after each caption.
+\subsection{Gerenciamento de materiais}
 
-\begin{table}[ht]
+Os materiais são todos os tipos de recursos que um aluno pode utilizar na escrita da sua monografia. Artigos, livros, conferências e conteúdo eletrônico são exemplos de materiais e cada um deste tem as suas próprias características.
+
+Quando estudantes cadastram materias, estes podem fazer uploads de seus respectivos materiais, e assim, professores podem analisar o material e avaliar a qualidade da referência. A figura \ref{fig:student.show-reference} representa um \emph{wireframe} de visão de materiais.
+
+\begin{figure}[ht]
 \centering
-\caption{Variables to be considered on the evaluation of interaction
-  techniques}
-\label{tab:exTable1}
-\includegraphics[width=.7\textwidth]{table.jpg}
-\end{table}
+\includegraphics[width=.5\textwidth]{08-student-show-reference.jpg}
+\caption{\emph{Wireframe} para visão de materiais.}
+\label{fig:student.show-reference}
+\end{figure}
 
-\section{Images}
+Materiais possuem citações e notas, desta forma estudantes podem usar fragmentos na escrita da monografia sem ter que passar por todo o material novamente.
 
-All images and illustrations should be in black-and-white, or gray tones,
-excepting for the papers that will be electronically available (on CD-ROMs,
-internet, etc.). The image resolution on paper should be about 600 dpi for
-black-and-white images, and 150-300 dpi for grayscale images.  Do not include
-images with excessive resolution, as they may take hours to print, without any
-visible difference in the result. 
+\subsection{Estruturação de cronograma}
 
-\section{References}
+O cronograma é um conjunto de tarefas distribuídos em um período de tempo. O progresso dessas tarefas são associados com o desenvolvimento do projeto final. É uma forma simples para o acompanhamento do desenvolvimento do projeto. A figura \ref{fig:student.schedule} mostra a listagem de tarefas do estudante registrado no sistema.
 
-Bibliographic references must be unambiguous and uniform.  We recommend giving
-the author names references in brackets, e.g. \cite{knuth:84},
-\cite{boulic:91}, and \cite{smith:99}.
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.5\textwidth]{09-student-schedule.jpg}
+\caption{\emph{Wireframe} para lista de tarefas.}
+\label{fig:student.schedule}
+\end{figure}
 
-The references must be listed using 12 point font size, with 6 points of space
-before each reference. The first line of each reference should not be
-indented, while the subsequent should be indented by 0.5 cm.
+\section{Modelagem} \label{sec:modeling}
+
+Com a etapa de desenho de interfaces concluída, o processo de modelagem do diagrama entidade-relacionamento se torna mais direto. A seguir, na figura \ref{fig:eer-diagram}, vemos as relações que constituem a plataforma My Last Project. Os atributos das entidades não estão sendo representados para tornar o documento mais limpo e focado nas relações existentes entre entidades.
+
+Temos que Professor e Estudante são entidades fracas de Usuário e Artigo, Livro, Conferência, Eletrônico são entidades fracas de Material. As outras relações são triviais.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\textwidth]{eer-diagram1.png}
+\caption{Diagrama EER}
+\label{fig:eer-diagram}
+\end{figure}
+
+\section{Mapeamento} \label{sec:mapping}
+
+Após concluir a etapa de modelagem é o momento de fazer o mapeamento do diagram para um SGBD. Definir os campos necessários para cada entidade que se converte em uma tabela. Nesse mapeamento são definidas as chaves estrageiras. Na relação muitos para muitos, no caso do My Last Project, autores e materiais, é criada uma tabela intermediária, com chaves estrangeiras para cada uma das entidades. Por fim, as especializações são absorvidas por suas entidades fortes. Essa decisão foi feita, pois são poucos atributos específicos existentes.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\textwidth]{eer-diagram.png}
+\caption{Mapeamento para o banco postgres}
+\label{fig:er-mapping}
+\end{figure}
+
+\section{Gerenciamento do projeto} \label{sec:management}
+
+A ferramenta utilizada para gerenciar o projeto de software é o Github. A url 
+para visualização das tarefas é 
+https://github.com/marcoafilho/my-last-project/issues. A ferramenta não conta com funcionalidades avançadas, serve de suporte para o desenvolvimento.
+
+A metodologia seguida é baseada nos modelos de gerenciamento de projetos open source. São definidos objetivos para cada versão e as tarefas para alcançar os objetivos são descritas. No total, o software está planejado para ser desenvolvido em seis versões e se encontra atualmente na segunda, a etapa de adição de recursos avançandos de banco de dados. Todas as versões são estimadas em uma semana, sendo encerradas sempre na quinta-feira. A seguir estão descritas as versões, contemplando o que já foi desenvolvido, o que está atrasado e o que virá a seguir.
+
+\begin{description}
+  \item[Versão 1.0: Interface, Mapeamento e Modelagem] \hfill \\
+  Era esperado dessa versão, a criação de protótipos para a interface do sistema e a modelagem do SGBD.
+  
+  Como produtos dessa versão deveriam ser gerados um artigo e uma apresentação da primeira fase do sistema. Esta versão está atrasada, pois os produtos esperados pela finalização desta ainda estão em construção.
+  
+  O presente artigo, unido à apresentação e ao software parcialmente funcional são os produtos desta versão. Esta versão está atrasada, devido a outros atrasos referentes aos integrantes da equipe na matéria.
+  \item[Versão 2.0: Views, Optimizataion, Stored Procedures, Triggers, Transactions] \hfill \\
+  É esperado dessa versão que a aplicação já acesse os recursos do banco de dados. Funcionalides como \emph{log in}, gerenciamento de projetos e de materiais devem estar funcionais.
+  
+  Além disso, é esperado que a aplicação contenha recursos avançados de banco de dados, como a implementação de visões, índices, \emph{stored procedures}, \emph{triggers} e \emph{transactions}.
+  \item[Versão 2.3] \hfill \\
+  Além de serem implementadas técnicas de recuperação e backup, as funcionalidades básicas do software devem ser implementadas.
+  \item[Versão 2.5] \hfill \\
+  Etapa de implementação de práticas de segurança e autorização.
+  \item[Versão 2.8] \hfill \\
+  Os recursos serão exportados para outros formatos de dados, XML por exemplo.
+  \item[Versão 3.0] \hfill \\
+  Versão final do software. Consta da preparação de um relatório de testes realizados com a aplicação.
+  
+  É esperada nessa versão que o software esteja completamente desenvolvido e que esteja seguro.
+  
+  Os produtos dessa versão são: Um relatório de testes mais um artigo, um seminário e a publicação do software em um link externo.
+\end{description}
 
 \bibliographystyle{sbc}
 \bibliography{sbc-template}

@@ -1,6 +1,10 @@
-legend
-  = t('.tabs.general.article_specific')
-= f.label :volume
-= f.text_field :volume
-= f.label :issue
-= f.text_field :issue
+.row
+  .span10
+    legend
+      = t('.tabs.general.article_specific')
+  .span3
+    = f.label :volume
+    = f.text_field :volume
+  .span3
+    = f.label :issue
+    = f.text_field :issue

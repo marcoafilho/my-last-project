@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
+  after_create :create_db_user
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :type
@@ -22,5 +24,10 @@ class User < ActiveRecord::Base
         type.eql? role
       end
     end
+  end
+  
+  private
+  def create_db_user
+    execute ""
   end
 end

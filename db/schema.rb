@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130228143348) do
+ActiveRecord::Schema.define(:version => 20130328032842) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -27,11 +27,22 @@ ActiveRecord::Schema.define(:version => 20130228143348) do
     t.datetime "created_at"
   end
 
+  create_table "notes", :force => true do |t|
+    t.integer  "resource_id"
+    t.text     "text"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "notes", ["resource_id"], :name => "index_notes_on_resource_id"
+
   create_table "notifications", :force => true do |t|
     t.integer  "user_id",    :null => false
     t.string   "message",    :null => false
     t.datetime "created_at", :null => false
   end
+
+  add_index "notifications", ["user_id"], :name => "index_notifications_on_user_id"
 
   create_table "projects", :force => true do |t|
     t.integer  "professor_id"
@@ -44,6 +55,17 @@ ActiveRecord::Schema.define(:version => 20130228143348) do
 
   add_index "projects", ["professor_id"], :name => "index_projects_on_professor_id"
   add_index "projects", ["title"], :name => "index_projects_on_title"
+
+  create_table "quotations", :force => true do |t|
+    t.integer  "resource_id"
+    t.text     "text"
+    t.integer  "from_page"
+    t.integer  "to_page"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "quotations", ["resource_id"], :name => "index_quotations_on_resource_id"
 
   create_table "resources", :force => true do |t|
     t.integer  "user_id"
@@ -65,10 +87,23 @@ ActiveRecord::Schema.define(:version => 20130228143348) do
   add_index "resources", ["title"], :name => "index_resources_on_title"
   add_index "resources", ["user_id"], :name => "index_resources_on_user_id"
 
+  create_table "tasks", :force => true do |t|
+    t.integer  "student_id"
+    t.string   "title",      :null => false
+    t.integer  "progress"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "tasks", ["student_id"], :name => "index_tasks_on_student_id"
+  add_index "tasks", ["title"], :name => "index_tasks_on_title"
+
   create_table "users", :force => true do |t|
     t.integer  "project_id"
     t.string   "name",                   :default => "", :null => false
-    t.string   "type"
+    t.string   "type",                                   :null => false
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"

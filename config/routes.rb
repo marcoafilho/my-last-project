@@ -13,6 +13,8 @@ MyLastProject::Application.routes.draw do
   
   resources :resources
   
+  resources :tasks
+  
   root to: "pages#home"
 
   # The priority is based upon order of creation:

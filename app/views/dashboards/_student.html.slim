@@ -1,19 +1,20 @@
 .row
 .row
-  .dashboard-container.span5
-    .dashboard-title
-      h4= t('.notifications.title')
-    .dashboard-content
-      - if @notifications.size > 0
-        - @notifications.each do |notification|
-          table.table
-            tbody
-              tr
-                td= t(notification.message)
-                td= t('.notifications.timestamp', timestamp: time_ago_in_words(notification.created_at))
-      - else
-        span.no-data= t('.notifications.no_notifications')
-  - unless current_user.project_id
+  - if current_user.project_id
+    .dashboard-container.span5
+      .dashboard-title
+        h4= t('.notifications.title')
+      .dashboard-content
+        - if @notifications.size > 0
+          - @notifications.each do |notification|
+            table.table
+              tbody
+                tr
+                  td= t(notification.message)
+                  td= t('.notifications.timestamp', timestamp: time_ago_in_words(notification.created_at))
+        - else
+          span.no-data= t('.notifications.no_notifications')
+  - else
     .span10.offset1
       .presentation.hero-unit
         h1.center-text

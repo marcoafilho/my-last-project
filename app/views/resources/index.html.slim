@@ -3,15 +3,17 @@ h1= t('.title')
 table.table.table-striped
   thead
     tr
+      th.span2= Resource.human_attribute_name(:type)
       th.span7= Resource.human_attribute_name(:title)
-      th.span3= Resource.human_attribute_name(:type)
+      th.span3= Resource.human_attribute_name(:authors)
       th.span1= t('general.actions.title')
   tbody
     - @resources.each do |resource|
       tr
-        th.span7= link_to resource.title, resource_path(resource)
-        th.span3= resource.type
-        th.span1
+        td.span2= resource.type
+        td.span7= link_to resource.title, resource_path(resource)
+        td.span3= display_authors(resource)
+        td.span1
           .btn-group
             = link_to t('general.actions.edit'), edit_resource_path(resource), class: "btn btn-small"
             = link_to t('general.actions.destroy'), resource_path(resource), data: { confirm: t("general.actions.destroy_alert") }, method: :delete, class: "btn btn-small btn-danger"
