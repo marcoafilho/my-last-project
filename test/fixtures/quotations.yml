@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  resource: 
+  text: MyText
+  from_page: 1
+  to_page: 1
+
+two:
+  resource: 
+  text: MyText
+  from_page: 1
+  to_page: 1
