@@ -26,8 +26,15 @@ class User < ActiveRecord::Base
     end
   end
   
+  def db_username
+    email.downcase.gsub(/@/, "_at_").gsub(/\./, "_")
+  end
+  
   private
   def create_db_user
-    execute ""
+    self.class.connection.execute "
+      CREATE USER #{db_username} WITH PASSWORD '#{encrypted_password}';
+      GRANT #{type.downcase.pluralize} TO #{db_username};
+    "
   end
 end

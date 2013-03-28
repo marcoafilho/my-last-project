@@ -11,13 +11,7 @@ class ApplicationController < ActionController::Base
   def change_db_connection
     db_connect
     if current_user
-      if current_user.student?
-        db_connect username: "students"
-      elsif current_user.professor?
-        db_connect username: "professors"
-      else
-        db_connect username: "guests"
-      end 
+      db_connect username: current_user.db_username, password: current_user.encrypted_password
     else
       db_connect username: "guests"
     end
