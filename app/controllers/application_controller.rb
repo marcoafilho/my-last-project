@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
   
   private
   def change_db_connection
+    return db_connect if self.controller_name == "registrations" && self.action_name == "create"
+    
     db_connect
     if current_user
       db_connect username: current_user.db_username, password: current_user.encrypted_password
