@@ -1,9 +1,17 @@
 class ProjectsController < ApplicationController
+  respond_to :html, :xml, :json, :csv
+  
   def index
     if current_user.professor?
-      @projects = current_user.projects.all
+      @search = current_user.projects.search(params[:q])
+      @projects = @search.result
+      
+      respond_with(@projects)
     else
-      @professor_projects = ProfessorProject.order(:id)
+      @search = ProfessorProject.order(:id).search(params[:q])
+      @professor_projects = @search.result
+      
+      respond_with(@professor_projects)
     end
   end
 
@@ -45,8 +53,8 @@ class ProjectsController < ApplicationController
   end
   
   def subscribe
-    @project = Project.find(params[:id])
-    if current_user.subscribe(@project)
+    @professor_project = ProfessorProject.find_by_project_id(params[:id])
+    if current_user.subscribe(@professor_project)
       redirect_to dashboard_path
     else
       redirect_to projects_path, alert: I18n.t('errors.save')

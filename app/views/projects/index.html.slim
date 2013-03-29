@@ -1,39 +1,65 @@
 h1= t('.title')
 
 - if current_user.professor?
-  table.table.table-striped
-    thead
-      tr
-        th.span7= Project.human_attribute_name(:title)
-        th.span3= t('.assigned_students')
-        th.span2= Project.human_attribute_name(:due_at)
-        th.span1= t('general.actions.title')
-    tbody
-      - @projects.each do |project|
-        tr
-          th.span7= link_to project.title, project_path(project)
-          th.span3= project.students.count
-          th.span2= project.due_at.strftime("%Y-%m-%d") if project.due_at
-          th.span1
-            .btn-group
-              = link_to t('general.actions.edit'), edit_project_path(project), class: "btn btn-small"
-              = link_to t('general.actions.destroy'), project_path(project), data: { confirm: t("general.actions.destroy_alert") }, method: :delete, class: "btn btn-small btn-danger"
-
-  = link_to t('general.actions.new'), new_project_path, class: "btn btn-primary"
-
-- if current_user.student?
-  - @professor_projects.group_by(&:name).each do |name, projects|
-    h3= name
+  - if @projects.any?  
+    .search-form
+      .align-right
+        = search_form_for @search, url: projects_path do |f|
+          .input-append
+            = f.text_field :title_or_summary_cont
+            = f.submit t("general.actions.search"), class: "btn"
     table.table.table-striped
       thead
         tr
-          th.span7= Project.human_attribute_name(:title)
+          th.span7.table-link
+            = sort_link @search, :title, Project.human_attribute_name(:title)
+          th.span3.table-link
+            = sort_link @search, :"students.count",  t('.assigned_students')
+          th.span2.table-link
+            = sort_link @search, :due_at, Project.human_attribute_name(:due_at)
           th.span1= t('general.actions.title')
       tbody
-          - projects.each do |project|
-            tr
-              th.span3= project.project_title
-              th.span7= project.project_summary
-              th.span1
-                = link_to t('general.actions.subscribe'), subscribe_project_path(project.project_id), method: :put, class: "btn btn-small btn-success"
+        - @projects.each do |project|
+          tr
+            td.span7= link_to project.title, project_path(project)
+            td.span3= project.students.count
+            td.span2= project.due_at.strftime("%Y-%m-%d") if project.due_at
+            td.span1
+              .btn-group
+                = link_to t('general.actions.edit'), edit_project_path(project), class: "btn btn-small"
+                = link_to t('general.actions.destroy'), project_path(project), data: { confirm: t("general.actions.destroy_alert") }, method: :delete, class: "btn btn-small btn-danger"
+  - else
+    .no-records
+      = t('.no_projects_found')
+  .new
+    = link_to t('general.actions.new'), new_project_path, class: "btn btn-primary"
+  = export
+- if current_user.student?
+  - if @professor_projects.any?
+    .search-form
+      .align-right
+        = search_form_for @search, url: projects_path do |f|
+          .input-append
+            = f.text_field :project_title_or_project_summary_cont
+            = f.submit t("general.actions.search"), class: "btn"
+    - @professor_projects.group_by(&:name).each do |name, projects|
+      h3= name
+      table.table.table-striped
+        thead
+          tr
+            th.span3              
+              = Project.human_attribute_name(:title)
+            th.span8= Project.human_attribute_name(:summary)
+            th.span1= t('general.actions.title')
+        tbody
+            - projects.each do |project|
+              tr
+                td.span3= project.project_title
+                td.span8= project.project_summary
+                td.span1
+                  = link_to t('general.actions.subscribe'), subscribe_project_path(project.project_id), method: :put, class: "btn btn-small btn-success"
+  - else
+    .no-records
+      = t('.no_professor_projects_found')
   = link_to t('general.actions.back'), :back
+  

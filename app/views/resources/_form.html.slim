@@ -9,58 +9,60 @@
   .tab-content
     .tab-pane.active#general
       fieldset
-        .row
-          .span10
-            legend= t('.relevance')
-            = f.label :relevance
-            = f.number_field :relevance, min: 0, max: 5, value: (@resource.relevance || 0), class: "input-mini"
-        .row
-          .span10
-            legend= t('.authors')
-            .nested-form  
-              = f.fields_for :authors do |a|
-                = render "author_fields", a: a
-              = link_to t('.add_author'), '#', class: 'nested-add-link btn btn-small btn-primary'
-        .row
+        .row.mgn-input
           .span10
             legend= t('.tabs.general.title')
             = f.label :title
-            = f.text_field :title
-
-            = f.label :publisher
-            = f.text_field :publisher
-
-            = f.label :year
-            = f.text_field :year
+            = f.text_field :title, class: "input-xxlarge"
+            
+            .nested-form
+              = f.fields_for :authors do |a|
+                = render "author_fields", a: a
+              = link_to t('.add_author'), '#', class: 'nested-add-link btn btn-small btn-primary'
+            .row
+              .span3
+                = f.label :publisher
+                = f.text_field :publisher
+              .span1
+                = f.label :year
+                = f.text_field :year, class: "input-mini"
 
             = f.label :read_at
-            = f.text_field :read_at
-        .row
+            = f.text_field :read_at, class: "input-small datepicker"
+        .row.mgn-input
           .span10
             = f.label :file
             = f.file_field :file
             = f.hidden_field :file_cache
-        .row
+        .row.mgn-input
           .span10
             = display_specific_fields(@resource, f)
+        .row.mgn-input
+          .span10
+            legend= t('.relevance')
+            = f.hidden_field :type, value: @resource.type
+            = f.label :relevance
+            = f.number_field :relevance, min: 0, max: 5, value: (@resource.relevance || 0), class: "input-mini"
     .tab-pane#quotations
       fieldset
         legend
           = t('.tabs.quotations.title')
-        = f.fields_for :quotations do |q|
-          = q.label :text
-          = q.text_area :text
-          = q.label :from_page
-          = q.number_field :from_page
-          = q.label :to_page
-          = q.number_field :to_page
+        .nested-form
+          = f.fields_for :quotations do |q|
+            = render "quotation_fields", q: q
+          = link_to t('.add_quotation'), '#', class: 'nested-add-link btn btn-small btn-primary'
     .tab-pane#notes
       fieldset
         legend
           = t('.tabs.notes.title')
-        = f.fields_for :quotations do |q|
-          = q.label :text
-          = q.text_area :text
+        .nested-form
+          = f.fields_for :notes do |q|
+            .nested-form-model
+              = q.label :text
+              = q.text_area :text, rows: 5, class: "input-xlarge"
+              = q.hidden_field :_destroy
+              = link_to t('.remove'), '', class: 'nested-remove-link btn btn-small btn-danger mgn-small mgn-input'
+          = link_to t('.add_note'), '#', class: 'nested-add-link btn btn-small btn-primary'
 .form-actions
   = f.submit t('general.actions.save'), class: "mgn-medium btn btn-primary"
   = link_to t('general.actions.back'), :back, class: "mgn-medium btn"

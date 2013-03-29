@@ -19,7 +19,7 @@
     = f.label :type
     = f.select :type, User::AVAILABLE_ROLES
     
-    div
+    .form-actions
       = f.submit t('.sign_up'), class: "btn"
 
 = render "devise/shared/links"

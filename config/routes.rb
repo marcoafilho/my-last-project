@@ -1,4 +1,8 @@
 MyLastProject::Application.routes.draw do
+  get "students/index"
+
+  get "students/show"
+
   get "pages/about_us"
 
   devise_for :users
@@ -12,6 +16,8 @@ MyLastProject::Application.routes.draw do
   end
   
   resources :resources
+  
+  resources :students
   
   resources :tasks
   

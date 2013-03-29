@@ -11,6 +11,9 @@ gem 'carrierwave'
 # Database adaptation
 gem 'faker'
 
+# Record search
+gem 'ransack'
+
 # Templating engines
 gem 'slim-rails', '1.1.0'
 gem 'twitter-bootstrap-rails', '2.2.4'

@@ -1,6 +1,11 @@
 class ResourcesController < ApplicationController
+  respond_to :html, :xml, :json
+  
   def index
-    @resources = current_user.resources.order(:title)
+    @search = current_user.resources.includes(:authors).search(params[:q])
+    @resources = @search.result
+    
+    respond_with(@resources)
   end
   
   def new
@@ -14,7 +19,7 @@ class ResourcesController < ApplicationController
     @resource = current_user.resources.new(params[:resource])
     
     if @resource.save
-      redirect_to projects_path, notice: I18n.t('resources.create.successful')
+      redirect_to resources_path, notice: I18n.t('resources.create.successful')
     else
       render :new
     end
@@ -23,20 +28,24 @@ class ResourcesController < ApplicationController
   def edit
     @resource = current_user.resources.find(params[:id])
     @resource.authors.build if @resource.authors.empty?
+    @resource.quotations.build if @resource.quotations.empty?
+    @resource.notes.build if @resource.notes.empty?
   end
   
   def update
     @resource = current_user.resources.find(params[:id])
-    
+
     if @resource.update_attributes(params[:resource])
-      redirect_to projects_path, notice: I18n.t('resources.update.successful')
+      redirect_to resources_path, notice: I18n.t('resources.update.successful')
     else
       render :edit
     end
   end
   
   def destroy
-    @resource = current_user.resources.find(paams[:id])
+    @resource = current_user.resources.find(params[:id])
     @resource.destroy
+    
+    redirect_to resources_path
   end
 end

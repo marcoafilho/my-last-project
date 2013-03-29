@@ -4,7 +4,7 @@ class CreatePostgresRoles < ActiveRecord::Migration
     execute "GRANT SELECT, INSERT ON users TO guests;"
     execute "GRANT USAGE, SELECT ON SEQUENCE users_id_seq TO guests;"
     
-    execute "CREATE ROLE students WITH LOGIN;"
+    execute "CREATE ROLE students;"
     execute "
       GRANT ALL ON users TO students;
       GRANT SELECT, INSERT ON notifications TO students;
@@ -16,7 +16,7 @@ class CreatePostgresRoles < ActiveRecord::Migration
       tasks_id_seq, resources_id_seq, quotations_id_seq, notes_id_seq, authors_id_seq TO students;
     "
     
-    execute "CREATE ROLE professors WITH LOGIN;"
+    execute "CREATE ROLE professors;"
     execute "
       GRANT ALL ON users TO professors;
       GRANT SELECT, INSERT ON notifications TO professors;
@@ -42,7 +42,7 @@ class CreatePostgresRoles < ActiveRecord::Migration
     "
     execute "
       REVOKE USAGE, SELECT ON SEQUENCE users_id_seq, notifications_id_seq, 
-      tasks_id_seq, resources_id_seq, quotations_id_seq, notes_id_seq, authors_id_seq FROM professors;
+      tasks_id_seq, resources_id_seq, quotations_id_seq, notes_id_seq, authors_id_seq FROM students;
     "
     execute "DROP ROLE students;"
 

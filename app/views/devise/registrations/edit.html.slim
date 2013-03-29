@@ -16,22 +16,23 @@
 
   = f.label :password 
   = f.password_field :password, autocomplete: "off"
-  span.help-inline= t('.helper.change_password')
+  span.help-inline
+    em= t('.helper.change_password')
 
   = f.label :password_confirmation
   = f.password_field :password_confirmation
 
   = f.label :current_password
   = f.password_field :current_password
-  span.help-inline= t('.helper.update_profile')
+  span.help-inline
+    em= t('.helper.update_profile')
 
-  div
-    = f.submit(t('.update'), class: "btn")
+  legend= t('.cancel')
 
-h3 Cancel my account
+  p 
+    = t('.unhappy')
+    = link_to t(".cancel"), registration_path(resource_name), data: { confirm: t("general.actions.destroy_alert") }, method: :delete, class: "mgn-small btn btn-danger"
 
-p 
-  | Unhappy?
-  = link_to t(".cancel"), registration_path(resource_name), data: { confirm: t("general.actions.destroy_alert") }, method: :delete, class: "mgn-small btn btn-danger"
-
-= link_to "Back", :back
+  .form-actions
+    = f.submit(t('.update'), class: "mgn-medium btn btn-primary")
+    = link_to "Back", :back, class: "mgn-medium btn"

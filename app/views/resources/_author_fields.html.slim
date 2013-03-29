@@ -1,5 +1,5 @@
 .nested-form-model
-  = a.label :name
+  = a.label :name, t('.author_name')
   = a.text_field :name
   = a.hidden_field :_destroy
-  = link_to t('.remove'), '#', class: 'nested-remove-link btn btn-small btn-danger mgn-small mgn-input'
+  = link_to t('.remove'), '', class: 'nested-remove-link btn btn-small btn-danger mgn-small mgn-input'

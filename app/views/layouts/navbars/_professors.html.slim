@@ -1,12 +1,24 @@
 ul.nav
-  li class=current_path(dashboard_path)
-    = link_to t('.dashboard'), dashboard_path
-  li class=current_path(resources_path)
-    = link_to t('.resources'), resources_path
-  li
-    = link_to t('.students'), '#'
-  li class=current_path(projects_path)
-    = link_to t('.projects'), projects_path
+  li class=current_controller("dashboards")
+    = link_to dashboard_path do
+      i.icon-th
+      | &nbsp;
+      = t('.dashboard')
+  li class=current_controller("resources")
+    = link_to resources_path do
+      i.icon-book
+      | &nbsp;
+      = t('.resources')
+  li class=current_controller("students")
+    = link_to students_path do
+      i.icon-user
+      | &nbsp;
+      = t('.students')
+  li class=current_controller("projects")
+    = link_to projects_path do
+      i.icon-road
+      | &nbsp;
+      = t('.projects')
 ul.nav.pull-right
   li.dropdown
     a href="#" class="dropdown-toggle" data-toggle="dropdown"

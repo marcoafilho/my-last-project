@@ -1,0 +1,14 @@
+.nested-form-model
+  .row
+    .span4
+      = q.label :text
+      = q.text_area :text, rows: 5, class: "input-xlarge"
+      = q.hidden_field :_destroy
+      = link_to t('.remove'), '', class: 'nested-remove-link btn btn-small btn-danger mgn-small mgn-input'
+  .row
+    .span2
+      = q.label :from_page
+      = q.number_field :from_page, class: "input-small"
+    .span2
+      = q.label :to_page
+      = q.number_field :to_page, class: "input-small"

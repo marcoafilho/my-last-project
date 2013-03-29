@@ -8,7 +8,7 @@ class CreateTriggerUserSubscription < ActiveRecord::Migration
             user_id integer;
             message varchar := 'notifications.projects.subscription';
           BEGIN
-            SELECT INTO user_id \"projects\".\"professor_id\" FROM \"projects\" WHERE \"projects\".\"id\" = NEW.\"project_id\";
+            SELECT INTO user_id \"professor_projects\".\"id\" FROM \"professor_projects\" WHERE \"professor_projects\".\"project_id\" = NEW.\"project_id\";
             SELECT INTO user_id notify_user(user_id, message);
             RETURN NEW;
           END;

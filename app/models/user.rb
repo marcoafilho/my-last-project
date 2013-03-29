@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   end
   
   def db_username
-    email.downcase.gsub(/@/, "_at_").gsub(/\./, "_")
+    email.downcase.gsub(/@/, "_at_").gsub(/\./, "_dot_")
   end
   
   private

@@ -3,7 +3,7 @@ class Student < User
   
   attr_accessible :project_id
   
-  def subscribe(project)
-    update_attribute :project, project
+  def subscribe(professor_project)
+    update_attribute :project_id, professor_project.id
   end
 end

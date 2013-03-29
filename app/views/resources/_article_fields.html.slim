@@ -2,9 +2,9 @@
   .span10
     legend
       = t('.tabs.general.article_specific')
-  .span3
+  .span1
     = f.label :volume
-    = f.text_field :volume
-  .span3
+    = f.text_field :volume, class: "input-mini"
+  .span1
     = f.label :issue
-    = f.text_field :issue
+    = f.text_field :issue, class: "input-mini"

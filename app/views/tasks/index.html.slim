@@ -13,15 +13,16 @@ h1= t('.title')
       - @tasks.each do |task|
         tr
           td= task.title
-          td= task.progress
-          td= task.starts_at
-          td= task.ends_at
+          td= display_progress(task)
+          td= task.starts_at.strftime("%Y-%m-%d") if task.starts_at
+          td= task.ends_at.strftime("%Y-%m-%d") if task.ends_at
           td
             .btn-group
               = link_to t('general.actions.edit'), edit_task_path(task), class: "btn btn-small"
               = link_to t('general.actions.destroy'), task_path(task), data: { confirm: t("general.actions.destroy_alert") }, method: :delete, class: "btn btn-small btn-danger"
 - else
-  .no-value
+  .no-records
     = t('.no_records_found')
-
-= link_to t('general.actions.new'), new_task_path, class: "btn btn-primary"
+.new
+  = link_to t('general.actions.new'), new_task_path, class: "btn btn-primary"
+= export

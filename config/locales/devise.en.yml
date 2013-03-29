@@ -40,6 +40,7 @@ en:
         helper:
           change_password: (leave blank if you don't want to change it)
           update_profile: (we need your current password to confirm your changes)
+        unhappy: Unhappy?
         update: Update
       new:
         sign_up: Sign up
