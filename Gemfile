@@ -18,6 +18,9 @@ gem 'ransack'
 gem 'slim-rails', '1.1.0'
 gem 'twitter-bootstrap-rails', '2.2.4'
 
+# XML parser
+gem 'nokogiri'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

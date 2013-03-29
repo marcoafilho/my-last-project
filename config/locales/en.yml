@@ -24,6 +24,7 @@ en:
   general:
     actions:
       title: Actions
+      close: Close
       destroy: Destroy
       destroy_alert: "Are you sure?"
       edit: Edit
@@ -47,6 +48,7 @@ en:
   modals:
     import:
       title: Import an XML file
+      helper: Select an XML file to import.
   notifications:
     projects:
       subscription: A new student has subscribed to one of your projects.
@@ -78,7 +80,7 @@ en:
     author_fields:
       author_name: Author name
     create:
-      successful: "Your resource was succesfully created."
+      successful: "Your resource was successfully created."
     edit:
       title: "Edit %{resource_type}"
     form:
@@ -89,18 +91,20 @@ en:
           title: Quotations
         notes: 
           title: Notes
+    import:
+      successful: Your resources were successfully imported.
     index:
       title: Resources
       no_records_found: No resources were found. Create one!
     new:
       title: "New %{resource_type}"
     update:
-      successful: "Your resource was succesfully updated."
+      successful: "Your resource was successfully updated."
   tasks:
     create:
-      successful: Your task was succesfully created.
+      successful: Your task was successfully created.
     destroy:
-      successful: Your task was succesfully destroyed.
+      successful: Your task was successfully destroyed.
     edit:
       title: "Edit task: %{title}"
     index:
@@ -109,4 +113,4 @@ en:
     new:
       title: New task
     update:
-      successful: Your task was succesfully updated.
+      successful: Your task was successfully updated.

@@ -3,9 +3,9 @@ class CreateResources < ActiveRecord::Migration
     create_table :resources do |t|
       t.references :user
 
-      t.integer :relevance
-      t.string :title
-      t.string :type
+      t.integer :relevance, default: 0
+      t.string :title, null: false
+      t.string :type, null: false
 
       t.string :publisher
       t.string :year

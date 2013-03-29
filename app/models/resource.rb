@@ -16,6 +16,9 @@ class Resource < ActiveRecord::Base
   attr_accessible :isbn
   attr_accessible :accessed_at
   
+  validates :title, presence: true
+  validates :type, presence: true
+  
   mount_uploader :file, FileUploader
   
   def autosave_associated_records_for_authors

@@ -15,7 +15,11 @@ MyLastProject::Application.routes.draw do
     end
   end
   
-  resources :resources
+  resources :resources do
+    collection do
+      post 'import'
+    end
+  end
   
   resources :students
   
