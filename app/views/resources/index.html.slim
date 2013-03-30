@@ -2,7 +2,8 @@ h1= t('.title')
 
 - if @resources.any?
   .search-form
-    .align-right
+    = will_paginate @resources, renderer: BootstrapPagination::Rails
+    .align-right.pull-right
       = search_form_for @search do |f|
         .input-append
           = f.text_field :title_or_authors_name_cont
@@ -48,10 +49,10 @@ h1= t('.title')
   .modal-header
     button type="button" class="close" data-dismiss="modal" aria-hidden="true" &times;
     h3= t('modals.import.title')
-  = form_tag({ action: :import }, multipart: true) do
-    .modal-body
-        p= t('modals.import.helper')
-        = file_field_tag :xml_file
-    .modal-footer
-      a href="#" class="btn" data-dismiss="modal"= t('general.action.close')
-      = submit_tag t("general.actions.save"), class: "btn btn-primary"
+  .modal-body
+    = form_tag({ action: :import }, multipart: true) do
+      p= t('modals.import.helper')
+      = file_field_tag :xml_file
+  .modal-footer
+    a href="#" class="btn" data-dismiss="modal"= t('general.action.close')
+    a href="#" class="btn btn-primary submit"= t("general.actions.save")

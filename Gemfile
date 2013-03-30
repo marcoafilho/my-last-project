@@ -12,6 +12,8 @@ gem 'carrierwave'
 gem 'faker'
 
 # Record search
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 gem 'ransack'
 
 # Templating engines

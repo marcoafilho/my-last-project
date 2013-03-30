@@ -41,8 +41,11 @@
 }
 
 .search-form {
+  .pagination {
+    display: inline-block;
+  }
   .align-right {
-    vertical-align: bottom;
+    margin: 20px 0;
   }
 }
 

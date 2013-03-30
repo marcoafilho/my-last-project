@@ -3,7 +3,7 @@ class ResourcesController < ApplicationController
   
   def index
     @search = current_user.resources.includes(:authors).search(params[:q])
-    @resources = @search.result
+    @resources = @search.result.paginate(page: params[:page])
     
     respond_with(@resources)
   end

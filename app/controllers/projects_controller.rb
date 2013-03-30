@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
     if current_user.professor?
       @search = current_user.projects.search(params[:q])
       @projects = @search.result
-      
+
       respond_with(@projects)
     else
       @search = ProfessorProject.order(:id).search(params[:q])
