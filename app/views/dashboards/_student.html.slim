@@ -14,6 +14,13 @@
                   td= t('.notifications.timestamp', timestamp: time_ago_in_words(notification.created_at))
         - else
           span.no-data= t('.notifications.no_notifications')
+    - if current_user.professor_project.project_due_at
+      .dashboard-container.span3
+        .dashboard-title
+          h4= t('.countdown.title')
+        .dashboard-content
+          h3.text-center= t('general.days_left', count: ((current_user.professor_project.project_due_at.to_time - Time.now) / 1.day).to_i)
+          p= t('.countdown.content')
   - else
     .span10.offset1
       .presentation.hero-unit

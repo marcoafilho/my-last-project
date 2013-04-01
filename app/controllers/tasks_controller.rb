@@ -12,16 +12,29 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = current_user.tasks.new
+    if current_user.student?
+      @task = current_user.tasks.new
+    elsif current_user.professor?
+      @task = Task.new
+    end
+    
     respond_with(@task)
   end
   
   def create
-    @task = current_user.tasks.new(params[:task])
+    if current_user.student?
+      @task = current_user.tasks.new(params[:task])
+    elsif current_user.professor?
+      @task = Task.new(params[:task])
+    end    
     
     if @task.save
       respond_with(@task, status: :created, location: @task) do |format|
-        format.html { redirect_to(tasks_path, notice: I18n.t('tasks.create.successful')) }
+        if current_user.student?
+          format.html { redirect_to(tasks_path, notice: I18n.t('tasks.create.successful')) }
+        elsif current_user.professor?
+          format.html { redirect_to(students_path, notice: I18n.t('tasks.create.successful')) }
+        end
       end
     else
       respond_with(@task.errors, status: :unprocessable_entity) do |format|

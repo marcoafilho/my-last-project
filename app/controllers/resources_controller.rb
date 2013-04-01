@@ -7,11 +7,17 @@ class ResourcesController < ApplicationController
     
     respond_with(@resources)
   end
-  
+    
   def show
     @resource = current_user.resources.find(params[:id])
     
     respond_with(@resource)
+  end
+  
+  def audit
+    @audits = current_user.resources.find(params[:id]).audits.reorder('version DESC')
+    
+    respond_with(@audits)
   end
   
   def new

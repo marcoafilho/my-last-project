@@ -18,6 +18,10 @@ jQuery ->
 
   $('.import-file').on('click', (e) ->
     $('#import_modal').modal())
+
+  $('.recommend-modal').on('click', (e) ->
+    $('#recommend_modal #user_recommended_resource_resource_id').val($(this).data('id'))
+    $('#recommend_modal').modal())
     
   $('.modal-footer .submit').on('click', (e) ->
     $(this).parents('.modal-footer').siblings('.modal-body').find('form').submit())

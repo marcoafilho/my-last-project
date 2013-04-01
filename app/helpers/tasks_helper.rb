@@ -1,11 +1,11 @@
 module TasksHelper
-  def display_progress(task)
-    if task.progress == 100
-      content_tag :span, progress_span(task.progress), class: "task-green"
-    elsif task.ends_at < Time.now && task.progress < 100
-      content_tag :span, progress_span(task.progress), class: "task-red"
+  def display_progress(progress, ends_at)
+    if progress == 100
+      content_tag :span, progress_span(progress), class: "task-green"
+    elsif ends_at < Time.now && progress < 100
+      content_tag :span, progress_span(progress), class: "task-red"
     else
-      content_tag :span, progress_span(task.progress)
+      content_tag :span, progress_span(progress)
     end
   end
   

@@ -1,0 +1,2 @@
+module RecommendedResourcesHelper
+end

@@ -1,0 +1,33 @@
+h1= t('.title')
+
+- if @audits.any?
+  - @audits.each do |audit|
+    h4= "##{audit.version} - #{audit.created_at} - #{audit.user.name} - #{t('general.actions.on')} #{audit.action}"
+    table.table.table-striped
+      - if audit.action.eql?('create')
+        thead
+          tr
+            th= t('.table.attribute')
+            th= t('.table.value.original')
+        tbody
+          - audit.audited_changes.each do |att, value|
+            - if value.present?
+              tr
+                td= att
+                td= value
+      - elsif audit.action.eql?('update')
+        thead
+          tr
+            th= t('.table.attribute')
+            th= t('.table.value.from')
+            th= t('.table.value.to')
+        tbody
+          - audit.audited_changes.each do |att, values|
+            tr
+              td= att
+              td= values[0]
+              td= values[1]
+
+.form-actions
+  = link_to t('general.actions.back'), :back
+= export

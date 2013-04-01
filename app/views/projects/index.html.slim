@@ -31,8 +31,9 @@ h1= t('.title')
   - else
     .no-records
       = t('.no_projects_found')
-  .new
-    = link_to t('general.actions.new'), new_project_path, class: "btn btn-primary"
+  .form-actions
+    .new
+      = link_to t('general.actions.new'), new_project_path, class: "btn btn-primary"
   = export
 - if current_user.student?
   - if @professor_projects.any?

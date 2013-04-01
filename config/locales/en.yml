@@ -2,10 +2,16 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  activerecord:
+    attributes:
+      task:
+        in_progress: In progress
+        in_progress_count: '#'
   dashboards:
     professor:
       title: Your dashboard
       notifications:
+        no_notifications: You do not have any notifications.
         title: Notifications
         timestamp: "%{timestamp} ago"
       students:
@@ -15,6 +21,12 @@ en:
       project:
         title: You need a final project!
         greetings: Let us help you find one now!
+      notifications:
+        no_notifications: You do not have any notifications.
+        title: Notifications
+      countdown:
+        title: Countdown
+        content: For you to finish your project.
   errors:
     lack_permissions: You lack the necessary permissions to access this page.
   footer:
@@ -30,8 +42,13 @@ en:
       edit: Edit
       export: Export to
       new: New
+      "on": "on"
       save: Save changes
       search: Search
+    days_left:
+      zero: 0 days left
+      one: 1 day left
+      other: '%{count} days left'
     upload_file: Upload file
   layouts:
     navbars:
@@ -76,6 +93,10 @@ en:
       title: "Edit project: %{title}"
     show:
       students: "Students (%{count})"
+  recommended_resources:
+    create:
+      successful: Your recommended resource was succesfully saved.
+      unsuccessful: Your recommended resource could not be saved. Try again.
   resources:
     author_fields:
       author_name: Author name
@@ -98,8 +119,22 @@ en:
       no_records_found: No resources were found. Create one!
     new:
       title: "New %{resource_type}"
+    show:
+      tabs:
+        general: 
+          title: General info
+        quotations: 
+          title: Quotations
+          no_record: There are no registered quotations.
+        notes: 
+          title: Notes
+          no_record: There are no registered notes.
     update:
       successful: "Your resource was successfully updated."
+  students:
+    index: 
+      title: Students
+      no_records_found: You don't have any assigned students.
   tasks:
     create:
       successful: Your task was successfully created.

@@ -1,0 +1,366 @@
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.4.1)  31 MAR 2013 15:42
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**views.tex
+(./views.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, ge
+rman-x-2009-06-19, ngerman-x-2009-06-19, afrikaans, ancientgreek, ibycus, arabi
+c, armenian, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danis
+h, dutch, ukenglish, usenglishmax, esperanto, estonian, ethiopic, farsi, finnis
+h, french, galician, german, ngerman, swissgerman, monogreek, greek, hungarian,
+ icelandic, assamese, bengali, gujarati, hindi, kannada, malayalam, marathi, or
+iya, panjabi, tamil, telugu, indonesian, interlingua, irish, italian, kurmanji,
+ lao, latin, latvian, lithuanian, mongolian, mongolianlmc, bokmal, nynorsk, pol
+ish, portuguese, romanian, russian, sanskrit, serbian, serbianc, slovak, sloven
+ian, spanish, swedish, turkish, turkmen, ukrainian, uppersorbian, welsh, loaded
+.
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(./sbc-template.sty
+Package: sbc-template 2001/06/09
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Switches for detecting VTeX and its modes (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count87
+\Gm@cntv=\count88
+\c@Gm@tempcnt=\count89
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks15
+)
+(./caption2.sty
+Package: caption2 2002/08/03 v2.1 Customising captions (AS)
+\captionmargin=\dimen111
+\captionwidth=\dimen112
+\captionindent=\dimen113
+Package caption2 Info: Running in caption2 v2.0 compatibility mode on input lin
+e 147.
+\captionlinewidth=\dimen114
+) (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/times.sty
+Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
+)
+\c@instn=\count90
+ (/usr/local/texlive/2011/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2007/08/12 v2.8 Sectioning titles
+\ttl@box=\box26
+\beforetitleunit=\skip43
+\aftertitleunit=\skip44
+\ttl@plus=\dimen115
+\ttl@minus=\dimen116
+\ttl@toksa=\toks16
+\titlewidth=\dimen117
+\titlewidthlast=\dimen118
+\titlewidthfirst=\dimen119
+))
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
+)
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count91
+))
+\Gin@req@height=\dimen120
+\Gin@req@width=\dimen121
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2008/03/30 v1.1d Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2008/03/30 v1.1d Input encoding file
+)) (./views.aux)
+\openout1 = `views.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 23.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(85.35826pt, 426.79135pt, 85.35826pt)
+* v-part:(T,H,B)=(99.58464pt, 674.33032pt, 71.13188pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=426.79135pt
+* \textheight=674.33032pt
+* \oddsidemargin=13.08827pt
+* \evensidemargin=13.08827pt
+* \topmargin=-9.68535pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/local/texlive/2011/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count92
+\scratchdimen=\dimen122
+\scratchbox=\box27
+\nofMPsegments=\count93
+\nofMParguments=\count94
+\everyMPshowfont=\toks19
+\MPscratchCnt=\count95
+\MPscratchDim=\dimen123
+\MPnumerator=\count96
+\makeMPintoPDFobject=\count97
+\everyMPtoPDFconversion=\toks20
+) (/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/04/22 v0.16 Utilities of pdfTeX for LuaTeX (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Managing graphics extensions (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Defining keys (HO)
+))
+(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2010/12/23 v3.10 Keyval support for LaTeX options (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2011/04/07 v1.13 Key value parser (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Prefix for e-TeX command names (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <16> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 25.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 25.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 25.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 25.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 25.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 25.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 27.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <13> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 41.
+ [1
+
+{/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (72.52805pt too wide) in paragraph at lines 100--100
+[]\OT1/pcr/m/n/10.95 GRANT ALL ON tasks, resources, quotations, notes, authors,
+ authors_resources[] 
+ []
+
+
+Overfull \hbox (13.39812pt too wide) in paragraph at lines 100--100
+[]\OT1/pcr/m/n/10.95 GRANT USAGE, SELECT ON SEQUENCE users_id_seq, notification
+s_id_seq,[] 
+ []
+
+
+Overfull \hbox (6.82813pt too wide) in paragraph at lines 100--100
+[]  \OT1/pcr/m/n/10.95 tasks_id_seq, resources_id_seq, quotations_id_seq, notes
+_id_seq,[] 
+ []
+
+
+Overfull \hbox (19.96811pt too wide) in paragraph at lines 100--100
+[]\OT1/pcr/m/n/10.95 GRANT ALL ON projects, tasks, resources, quotations, notes
+, authors,[] 
+ []
+
+
+Overfull \hbox (13.39812pt too wide) in paragraph at lines 100--100
+[]\OT1/pcr/m/n/10.95 GRANT USAGE, SELECT ON SEQUENCE users_id_seq, notification
+s_id_seq,[] 
+ []
+
+
+Overfull \hbox (26.5381pt too wide) in paragraph at lines 100--100
+[]  \OT1/pcr/m/n/10.95 projects_id_seq, tasks_id_seq, resources_id_seq, quotati
+ons_id_seq,[] 
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 118.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 118.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 135.
+ [2] [3]
+Overfull \hbox (59.38806pt too wide) in paragraph at lines 229--229
+[]  \OT1/pcr/m/n/10.95 'test ! -f /mnt/server/archivedir/%f && cp %p /mnt/serve
+r/archivedir/%f'[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 236--244
+[]\OT1/ptm/m/n/10.95 Primeiramente ex-e-cu-ta-mos o co-mando \OT1/pcr/m/n/10.95
+ SELECT
+ []
+
+
+Underfull \hbox (badness 3029) in paragraph at lines 236--244
+\OT1/pcr/m/n/10.95 pg[]start[]backup(`my[]backup');\OT1/ptm/m/n/10.95 , onde `m
+y[]backup' []e um mar-cador para o seu
+ []
+
+
+Underfull \hbox (badness 1552) in paragraph at lines 255--256
+[]\OT1/ptm/m/n/10.95 Criar um ar-quivo de recupera[][]ao (re-cov-ery.conf) no d
+i-ret[]orio de da-dos. O ar-
+ []
+
+
+Underfull \hbox (badness 1259) in paragraph at lines 255--256
+\OT1/ptm/m/n/10.95 quivo de recupera[][]ao cont[]em o seguinte co-mando: \OT1/p
+cr/m/n/10.95 restore[]command = `cp
+ []
+
+[4]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 271.
+ [5] (./views.aux) ) 
+Here is how much of TeX's memory you used:
+ 2606 strings out of 493633
+ 37206 string characters out of 3143378
+ 103025 words of memory out of 3000000
+ 5862 multiletter control sequences out of 15000+200000
+ 24514 words of font info for 51 fonts, out of 3000000 for 9000
+ 831 hyphenation exceptions out of 8191
+ 37i,8n,28p,580b,310s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/base/8r
+.enc}</usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pf
+b></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/l
+ocal/texlive/2011/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texli
+ve/2011/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2011/t
+exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2011/texmf-dist/
+fonts/type1/urw/times/utmri8a.pfb>
+Output written on views.pdf (5 pages, 103400 bytes).
+PDF statistics:
+ 49 PDF objects out of 1000 (max. 8388607)
+ 34 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

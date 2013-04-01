@@ -1,4 +1,8 @@
 = form_for task do |f|
+  - if current_user.professor?
+    = f.label :student_id
+    = f.select :student_id, current_user.students.collect {|p| [ p.name, p.id ] }
+
   = f.label :title
   = f.text_field :title, autofocus: true
   

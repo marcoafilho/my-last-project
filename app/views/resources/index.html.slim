@@ -12,37 +12,45 @@ h1= t('.title')
     thead
       tr
         th.span2.table-link= sort_link @search, :type, Resource.human_attribute_name(:type)
-        th.span5.table-link= sort_link @search, :title, Resource.human_attribute_name(:title)
+        th.span6.table-link= sort_link @search, :title, Resource.human_attribute_name(:title)
         th.span2.table-link= sort_link @search, :relevance, Resource.human_attribute_name(:relevance)
-        th.span3.table-link= sort_link @search, :authors_name, Resource.human_attribute_name(:authors)
+        th.span4.table-link= sort_link @search, :authors_name, Resource.human_attribute_name(:authors)
         th.span1= t('general.actions.title')
     tbody
       - @resources.each do |resource|
         tr
           td.span1= resource.type
-          td.span7= link_to resource.title, resource_path(resource)
+          td.span6= link_to resource.title, resource_path(resource)
           th.span1= display_relevance(resource.relevance)
-          td.span3= display_authors(resource)
+          td.span4= display_authors(resource)
           td.span1
             .btn-group
+              - if current_user.student?
+                = link_to recommended_resources_path(user_recommended_resource: { resource_id: resource.id, professor_id: current_user.professor.id }), \
+                  class: "btn btn-small btn-info recommend-modal", method: :post do
+                  = t('general.actions.recommend')
+              - elsif current_user.professor?
+                = link_to t('general.actions.recommend'), '#', class: "btn btn-small btn-info recommend-modal", data: { toggle: "modal", id: resource.id }
               = link_to t('general.actions.edit'), edit_resource_path(resource), class: "btn btn-small"
               = link_to t('general.actions.destroy'), resource_path(resource), data: { confirm: t("general.actions.destroy_alert") }, method: :delete, class: "btn btn-small btn-danger"
 - else
   .no-records
     = t('.no_records_found')
-.new
-  .btn-group
-    a.btn.btn-primary.dropdown-toggle data-toggle="dropdown" href="#"
-      = t("general.actions.new")
-      | &nbsp;
-      span.caret
-    ul.dropdown-menu
-      li= link_to t(".new.article"), new_resource_path(resource_type: "Article")
-      li= link_to t(".new.book"), new_resource_path(resource_type: "Book")
-      li= link_to t(".new.conference"), new_resource_path(resource_type: "Conference")
-      li= link_to t(".new.electronic"), new_resource_path(resource_type: "Electronic")
-  .btn.btn-inverse.mgn-left.import-file data-toggle="modal"
-    = t('general.actions.import')
+.form-actions
+  .new
+    .btn-group
+      a.btn.btn-primary.dropdown-toggle data-toggle="dropdown" href="#"
+        = t("general.actions.new")
+        | &nbsp;
+        span.caret
+      ul.dropdown-menu
+        li= link_to t(".new.article"), new_resource_path(resource_type: "Article")
+        li= link_to t(".new.book"), new_resource_path(resource_type: "Book")
+        li= link_to t(".new.conference"), new_resource_path(resource_type: "Conference")
+        li= link_to t(".new.electronic"), new_resource_path(resource_type: "Electronic")
+    = link_to t('general.actions.recommended'), recommended_resources_path, class: 'btn btn-info mgn-left'
+    .btn.btn-inverse.mgn-left.import-file data-toggle="modal"
+      = t('general.actions.import')
 = export
 
 #import_modal.modal.hide.fade
@@ -56,3 +64,17 @@ h1= t('.title')
   .modal-footer
     a href="#" class="btn" data-dismiss="modal"= t('general.action.close')
     a href="#" class="btn btn-primary submit"= t("general.actions.save")
+
+- if current_user.professor?
+  #recommend_modal.modal.hide.fade
+    .modal-header
+      button type="button" class="close" data-dismiss="modal" aria-hidden="true" &times;
+      h3= t('modals.recommend.title')
+    .modal-body
+      = form_for :user_recommended_resource, url: recommended_resources_path do |f|
+        p= t('modals.recommend.helper')
+        = f.hidden_field :resource_id
+        = f.select :student_id, current_user.students.collect {|p| [ p.name, p.id ] }
+    .modal-footer
+      a href="#" class="btn" data-dismiss="modal"= t('general.action.close')
+      a href="#" class="btn btn-primary submit"= t("general.actions.save")

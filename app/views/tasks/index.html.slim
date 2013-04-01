@@ -13,7 +13,7 @@ h1= t('.title')
       - @tasks.each do |task|
         tr
           td= task.title
-          td= display_progress(task)
+          td= display_progress(task.progress, task.ends_at)
           td= task.starts_at.strftime("%Y-%m-%d") if task.starts_at
           td= task.ends_at.strftime("%Y-%m-%d") if task.ends_at
           td
@@ -23,6 +23,7 @@ h1= t('.title')
 - else
   .no-records
     = t('.no_records_found')
-.new
-  = link_to t('general.actions.new'), new_task_path, class: "btn btn-primary"
+.form-actions
+  .new
+    = link_to t('general.actions.new'), new_task_path, class: "btn btn-primary"
 = export

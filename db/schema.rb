@@ -11,7 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130328032842) do
+ActiveRecord::Schema.define(:version => 20130401021810) do
+
+  create_table "audits", :force => true do |t|
+    t.integer  "auditable_id"
+    t.string   "auditable_type"
+    t.integer  "associated_id"
+    t.string   "associated_type"
+    t.integer  "user_id"
+    t.string   "user_type"
+    t.string   "username"
+    t.string   "action"
+    t.text     "audited_changes"
+    t.integer  "version",         :default => 0
+    t.string   "comment"
+    t.string   "remote_address"
+    t.datetime "created_at"
+  end
+
+  add_index "audits", ["associated_id", "associated_type"], :name => "associated_index"
+  add_index "audits", ["auditable_id", "auditable_type"], :name => "auditable_index"
+  add_index "audits", ["created_at"], :name => "index_audits_on_created_at"
+  add_index "audits", ["user_id", "user_type"], :name => "user_index"
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -99,6 +120,16 @@ ActiveRecord::Schema.define(:version => 20130328032842) do
 
   add_index "tasks", ["student_id"], :name => "index_tasks_on_student_id"
   add_index "tasks", ["title"], :name => "index_tasks_on_title"
+
+  create_table "user_recommended_resources", :force => true do |t|
+    t.integer  "professor_id", :null => false
+    t.integer  "student_id",   :null => false
+    t.integer  "resource_id",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "user_recommended_resources", ["professor_id", "student_id", "resource_id"], :name => "index_user_recommended_resources_on_prof_stud_res_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.integer  "project_id"

@@ -19,7 +19,13 @@ MyLastProject::Application.routes.draw do
     collection do
       post 'import'
     end
+    
+    member do
+      get 'audit'
+    end
   end
+  
+  resources :recommended_resources
   
   resources :students
   

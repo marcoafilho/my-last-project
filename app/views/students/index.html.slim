@@ -1,2 +1,29 @@
 h1= t('.title')
 
+- if @students.any?
+  .search-form
+    = will_paginate @students, renderer: BootstrapPagination::Rails
+    .align-right.pull-right
+      = search_form_for @search do |f|
+        .input-append
+          = f.text_field :name_or_project_title_cont
+          = f.submit t("general.actions.search"), class: "btn"
+  table.table.table-striped
+    thead
+      tr
+        th.span3.table-link= sort_link @search, :name, User.human_attribute_name(:name)
+        th.span4.table-link= sort_link @search, :project_title, Project.human_attribute_name(:title)
+        th.span1.table-link= sort_link @search, :tasks_in_progress_count, Task.human_attribute_name(:in_progress_count)
+        th.span2.table-link= sort_link @search, :tasks_in_progress, Task.human_attribute_name(:in_progress)
+    tbody
+      - @students.each do |student|
+        tr
+          td= student.name
+          td= student.project.title
+          td= student.tasks.in_progress.count
+          td= display_progress((student.tasks.in_progress.collect(&:progress).sum.to_f / student.tasks.in_progress.size).to_i, 1.week.from_now) if student.tasks.in_progress.size > 0
+  .form-actions
+    = link_to t('.add_task'), new_task_path, class: "btn btn-primary"
+- else
+  = t('.no_records_found')
+= export

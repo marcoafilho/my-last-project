@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   AVAILABLE_ROLES = ["Professor", "Student"]
   
+  belongs_to :audit
   has_many :notifications
   has_many :resources
   
@@ -24,6 +25,10 @@ class User < ActiveRecord::Base
         type.eql? role
       end
     end
+  end
+  
+  def username
+    name
   end
   
   def db_username

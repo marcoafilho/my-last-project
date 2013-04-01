@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '3.2.12'
 
@@ -22,6 +22,9 @@ gem 'twitter-bootstrap-rails', '2.2.4'
 
 # XML parser
 gem 'nokogiri'
+
+# Audit
+gem "audited-activerecord", "~> 3.0"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
