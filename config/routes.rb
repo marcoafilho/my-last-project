@@ -25,7 +25,11 @@ MyLastProject::Application.routes.draw do
     end
   end
   
-  resources :recommended_resources
+  resources :recommended_resources do
+    member do
+      get 'audit'
+    end 
+  end
   
   resources :students
   

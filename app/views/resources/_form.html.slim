@@ -17,7 +17,7 @@
             
             .nested-form
               = f.fields_for :authors do |a|
-                = render "author_fields", a: a
+                = render "resources/author_fields", a: a
               = link_to t('.add_author'), '#', class: 'nested-add-link btn btn-small btn-primary'
             .row
               .span3
@@ -36,20 +36,20 @@
             = f.hidden_field :file_cache
         .row.mgn-input
           .span10
-            = display_specific_fields(@resource, f)
+            = display_specific_fields(f.object, f)
         .row.mgn-input
           .span10
             legend= t('.relevance')
-            = f.hidden_field :type, value: @resource.type
+            = f.hidden_field :type, value: f.object.type
             = f.label :relevance
-            = f.number_field :relevance, min: 0, max: 5, value: (@resource.relevance || 0), class: "input-mini"
+            = f.number_field :relevance, min: 0, max: 5, value: (f.object.relevance || 0), class: "input-mini"
     .tab-pane#quotations
       fieldset
         legend
           = t('.tabs.quotations.title')
         .nested-form
           = f.fields_for :quotations do |q|
-            = render "quotation_fields", q: q
+            = render "resources/quotation_fields", q: q
           = link_to t('.add_quotation'), '#', class: 'nested-add-link btn btn-small btn-primary'
     .tab-pane#notes
       fieldset

@@ -1,0 +1,4 @@
+h1= t('.title', resource_type: @recommended_resource.type.downcase)
+
+= form_for @recommended_resource, as: :resource, url: recommended_resource_path(@recommended_resource), html: { multipart: true } do |f|
+  = render "resources/form", f: f

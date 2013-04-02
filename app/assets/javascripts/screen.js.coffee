@@ -6,14 +6,12 @@ jQuery ->
   
   $('.nested-form a.nested-add-link').on('click', (e) ->
     new_id = new Date().getTime()
+    
+    content = $(this).siblings('.nested-form-model').first().clone()
+    content.html(content.html().replace(/\_\d+\_/g, '_' + new_id + '_').replace(/\[\d+\]/g, '[' + new_id + ']'))
+    content.find('input').val('')
+    content.find('textarea').html('')
   
-    content = "<div class='nested-form-model'>" +
-      "<label for='resource_authors_attributes_" + new_id + "_name'>Author name</label>" +
-      "<input id='resource_authors_attributes_" + new_id + "_name' name='resource[authors_attributes]["+ new_id + "][name]' size='30' type='text'>" +
-      "<input id='resource_authors_attributes_" + new_id + "__destroy' name='resource[authors_attributes]["+ new_id + "][_destroy]' type='hidden' value='false'>" +
-      "<a href='#' class='nested-remove-link btn btn-small btn-danger mgn-small mgn-input'>Remove</a>"
-      "</div>"
-
     $(content).insertBefore(this))
 
   $('.import-file').on('click', (e) ->

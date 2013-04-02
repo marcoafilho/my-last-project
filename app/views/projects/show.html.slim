@@ -1,12 +1,11 @@
 h1= @project.title
-h5
-  = Project.human_attribute_name(:due_at) + ": " 
-  = @project.due_at.strftime("%Y-%m-%d") if @project.due_at
+b= Project.human_attribute_name(:due_at) + ": " 
+p= @project.due_at.strftime("%Y-%m-%d") if @project.due_at
 
 b= Project.human_attribute_name(:summary) + ": " 
 p= @project.summary
 
-h4
+b
   = t('.students', count: @project.students.count)
 - if @project.students.count > 0
   table.table
@@ -21,4 +20,6 @@ h4
 br
 .form-actions
   = link_to t('general.actions.back'), :back, class: "btn"
+  = link_to t('general.actions.edit'), edit_project_path(@project), class: "btn btn-warning mgn-left"
+  = link_to t('general.actions.destroy'), project_path(@project), data: { confirm: t("general.actions.destroy_alert") }, method: :destroy, class: "mgn-left btn btn-danger"
 = export

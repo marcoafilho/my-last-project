@@ -1,4 +1,5 @@
 class ResourcesController < ApplicationController
+  require 'htmlentities'
   respond_to :html, :xml, :json
   
   def index
@@ -15,7 +16,9 @@ class ResourcesController < ApplicationController
   end
   
   def audit
-    @audits = current_user.resources.find(params[:id]).audits.reorder('version DESC')
+    @audits = (current_user.resources.find(params[:id]).audits.reorder('version DESC') +
+      current_user.resources.find(params[:id]).associated_audits.reorder('version DESC'))
+      .sort_by(&:created_at).reverse
     
     respond_with(@audits)
   end
@@ -66,11 +69,12 @@ class ResourcesController < ApplicationController
   end
   
   def import
+    coder = HTMLEntities.new
     uploaded_io = params[:xml_file]
     file_name = "#{Time.now.to_i}_#{uploaded_io.original_filename}"
     
     File.open(Rails.root.join('public', 'imports', file_name), 'w') do |file|
-      file.write(uploaded_io.read)
+      file.write(coder.decode(uploaded_io.read))
     end
     
     @xml = XmlImport.new(file_name: file_name)

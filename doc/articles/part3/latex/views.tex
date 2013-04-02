@@ -45,18 +45,101 @@ professores e estudantes, através de uma plataforma colaborativa para que os
 últimos atingam os seus interesses e aspirações na graduação, criando um 
 projeto final de qualidade.
 
-Em sua terceira versão, o software enfoca na segurança dos usuários ao 
-associar papéis específicos à medida que visitantes se registram. Na seção 
-\ref{sec:user_creation} são descritos os detalhes de modelagem e 
-implementação. Para oferecer maior integração com outras plataformas são 
-fornecidos outros modelos de exportação, descritos em \ref{sec:xml}. Garantir 
-a consistência do banco de dados independente das adversidades é necessário 
-manter uma estratégia de \emph{backup} que garanta que os registros criados 
-por usuários não sejam perdidos. A seção \ref{sec:backups} aborda essa 
-estratégia. Por fim, \ref{sec:management} trata da etapa de gerenciamento 
+Em sua terceira versão, o software enfoca na segurança dos dados dos usuários. 
+Através de uma estratégia \emph{backup online} vistos na seção 
+\ref{sec:backup} e de sua respectiva recuperação em \ref{sec:recovery} é 
+garantida a capacidade do sistema de retornar a estados consistentes. Nem 
+todos os usuários podem realizar as mesmas tarefas, por isso em 
+\ref{sec:authorization} está descrita a definição de papéis e suas permissões. 
+
+É importante para os usuários visualizarem as modificações feitas em seus 
+recursos, por isso a auditoria foi implementada nesse modelo. Mais detalhes 
+na seção \ref{sec:audit}. Para oferecer maior integração com outras 
+plataformas são fornecidos outros modelos de exportação, descritos em 
+\ref{sec:xml}. Por fim, \ref{sec:management} trata da etapa de gerenciamento 
 para entregar a versão 3.0 do software My Last Project.
 
-\section{Criação de usuários} \label{sec:user_creation}
+\section{Backup} \label{sec:backup}
+
+Uma das atividades mais importantes para o desenvolvimento de qualquer 
+plataforma comercial é garantir que os dados sejam segurados. É através deles 
+que se pode extrair informações importantes para o contexto do cliente. Diante 
+disso, na versão 3.0 da plataforma My Last Project foi implementada uma 
+estratégia de \emph{backup} para manter os consistente caso ocorra alguma 
+falha no sistema.
+
+A estratégia utilizada chama-se PiTR (do inglês \emph{Point in Time Recovery}) 
+e é definida por duas etapas: a criação de um \emph{backup} base e o 
+arquivamento de \emph{logs}, também conhecidos como WAL (
+\emph{Write Ahead Logs}). Quando uma transação é requisitada no banco ela é 
+escrita no arquivo de \emph{log} antes mesmo de ser executada. Apesar de ser 
+um processo mais difícil de administrar existem vantagens significativas ao 
+utilizar essa abordagem:
+
+\begin{itemize}
+  \item O \emph{backup} base não necessita estar consistente. As 
+  inconsistências são resolvidas com a execução dos arquivos de log;
+  \item Útil para bancos de dados grandes, já que não é necessário fazer um 
+  backup completo frequentemente;
+  \item É possível recuperar o banco de dados para qualquer ponto depois da 
+  tomada do \emph{backup} base;
+  \item Se mantermos o arquivamento dos logs em outra máquina podemos fazer 
+  uma replicação do sistema a qualquer momento.
+\end{itemize}
+
+Primeiramente, é importante garantir que o arquivamento dos arquivos de 
+\emph{log} estão sendo realizados corretamente. É necessário alterar algumas 
+variáveis na configuração do arquivo postgresql.conf. Essas alterações são 
+vistas na listagem à seguir.
+
+\small\begin{verbatim}
+wal_level = archive # ou hot_standby
+archive_mode = on
+archive_command = \
+  'test ! -f /mnt/server/archivedir/%f && cp %p /mnt/server/archivedir/%f'
+\end{verbatim}
+
+A primeira linha define o nível de armazenameno no log. A segunda habilita o 
+modo de arquivamento e a última linha explicíta o comando \emph{shell} a ser 
+realizado para arquivamento. Neste caso, os arquivos de log estão sendo 
+copiados para uma pasta externa. É necessário reiniciar o banco de dados para 
+carregar as novas configurações.
+
+Ao terminar a configuração para arquivamento contínuo, é necessário realizar 
+o \emph{backup} base. No console do PostgreSQL é necessário informar o banco 
+que está sendo feito um backup do banco. O comando 
+\small\texttt{SELECT pg\_start\_backup(`backup\_timestamp');}, onde 
+backup\_timestamp é um marcador qualquer inicia o processo de \emph{backup}. 
+Neste momento pode-se usar qualquer ferramenta para fazer o \emph{backup} 
+convencional. Quando terminado o \emph{backup} executa-se o comando 
+\small\texttt{SELECT pg\_stop\_backup();} para que o banco sai do modo 
+\emph{backup}.
+
+Desta maneira o processo de \emph{backup} é finalizado.
+
+\section{Recuperação} \label{sec:recovery}
+
+Caso algo inesperado ocorra com o banco de dados como a remoção de um banco de 
+dados por um usuário malicioso por exemplo, é possível recuperar o banco para 
+qualquer estado depois do \emph{backup} base, como já foi dito na seção 
+\ref{sec:backup}. Os passos a seguir representam o fluxo de recuperação.
+
+\begin{enumerate}
+  \item Parar a conexão com o banco, caso esteja ativa;
+  \item Remover todos os arquivos na pasta de dados, verificando apenas se existem arquivos de log que não foram arquivados;
+  \item Recuperar os arquivos base de backup;
+  \item Remover os arquivos presentes na pasta pg\_xlog/;
+  \item Caso existam arquivos de log não arquivados copiar manualmente para a pasta pg\_xlog/;
+  \item Criar um arquivo de recuperação (recovery.conf) no diretório de dados.
+  \item Reiniciar o servidor de banco de dados. Ele iniciará em modo de recuperação e ao finalizar renomeará o arquivo de recuperação para recovery.done;
+  \item Inspecionar o conteúdo do banco. Caso algo esteja faltando, repetir o processo novamente;
+\end{enumerate}
+
+Para o arquivo de recuperação é imprescindível o seguinte comando: 
+\small\texttt{restore\_command = `cp /mnt/server/archivedir/\%f \%p'}. Ele irá 
+carregar os logs arquivados na pasta de dados.
+
+\section{Autorização} \label{sec:authorization}
 
 Até a versão 2.0 do software My Last Project, usuários utilizavam a aplicação 
 com um mesmo usuário de banco de dados. Isso implica que qualquer usuário 
@@ -70,9 +153,8 @@ associação com o seu papel correspondente.
 No projeto My Last Project existem três papéis diferentes: \emph{guest} 
 (visitante), capaz de se inscrever na plataforma; \emph{student} (estudante), 
 capaz de gerenciar referências e tarefas e o professor, que tem liberdade 
-total do software com exceção da manipulação das notificações, onde é possível 
-apenas buscar ou inserir registros. No PostgreSQL para definir papéis foi 
-utilizado o seguinte código:
+para manipular qualquer recurso que seja o pertença ou a um de seus 
+estuadantes. No PostgreSQL para definir papéis foi utilizado o seguinte código:
 
 \small\begin{verbatim}
 CREATE ROLE guests WITH LOGIN;
@@ -80,7 +162,7 @@ GRANT SELECT, INSERT ON users TO guests;
 GRANT USAGE, SELECT ON SEQUENCE users_id_seq TO guests;
 
 CREATE ROLE students;
-GRANT ALL ON users TO students;
+GRANT SELECT, UPDATE, DELETE ON users TO students;
 GRANT SELECT, INSERT ON notifications TO students;
 GRANT ALL ON tasks, resources, quotations, notes, authors, authors_resources
   TO students;
@@ -90,7 +172,7 @@ GRANT USAGE, SELECT ON SEQUENCE users_id_seq, notifications_id_seq,
   authors_id_seq TO students;
 
 CREATE ROLE professors;
-GRANT ALL ON users TO professors;
+GRANT SELECT, UPDATE, DELETE ON users TO professors;
 GRANT SELECT, INSERT ON notifications TO professors;
 GRANT ALL ON projects, tasks, resources, quotations, notes, authors, 
   authors_resources TO professors;
@@ -132,8 +214,21 @@ respectivo usuário.
 Dessa forma, os dados estão mais seguros, já que não são todos os usuários que 
 podem manipular todas as tabelas no banco, evitando acidentes.
 
-\section{Auditoria}
+\section{Auditoria} \label{sec:audit}
 
+O modelo central da plataforma são os recursos. Estudantes e professores 
+visitam essa página para colaborarem entre si com artigos, livros, 
+conferências, etc. Para que usuários acompanhem as modificações foi 
+desenvolvida uma estratégia de auditoria.
+
+Foi criada uma tabela chamada audits, que armazena: o identificador e o tipo 
+do objeto modificado, o identificador do usuário, um array com as modificações 
+comparadas com a última versão, a ação executada e o endereço remoto que 
+realizou a ação.
+
+A página de auditoria fornece então a união de todas as versões de um 
+determinado recurso e de seus objetos dependentes (citações e notas) ordenadas 
+pela versão mais recente.
 
 \section{XML} \label{sec:xml}
 
@@ -204,92 +299,26 @@ Esse processo de importação é uma forma que facilita usuários a registrarem
 seus recursos na página sem a necessidade de ingressar na página de criação 
 de recursos para cada recurso existente.
 
-\section{Backups} \label{sec:backups}
-
-Manter os dados seguros na plataforma é uma das atividades mais importantes 
-para o desenvolvimento. Isso significa que os dados são os bens mais valiosos 
-em My Last Project. Perdê-los significa perder clientes. Dessa forma, na 
-versão 3.0 foi implementado o backup online que utiliza arquivos de log para 
-registrar quaisquer modificações no banco.
-
-A estratégia utilizada foi a de PITR (\emph{Point In Time Recovery}), cujo 
-objetivo é ter um backup base do banco de dados (mesmo que inconsistente) e um 
-conjunto de arquivos de log que registram cada modificação feita no banco. 
-Quando algo inesperado acontece ao banco, póde-se usar o backup base e depois 
-executar os arquivos de log, para recuperar os arquivos perdidos.
-
-Inicialmente configura-se os arquivos de log para que seja feito o seu backup. 
-São feitas três modificações no arquivo postgresql.conf listadas à seguior.
-
-\small\begin{verbatim}
-wal_level = archive # ou hot_standby
-archive_mode = on
-archive_command = \
-  'test ! -f /mnt/server/archivedir/%f && cp %p /mnt/server/archivedir/%f'
-\end{verbatim}
-
-A última linha de configuração é um comando para onde os arquivos de log, 
-também chamados de WAL (\emph{Write Ahead Logs}) serão copiados. Depois de ter 
-sido verificado como funcional é necessário configurar o arquivo base de 
-backup.
-
-Primeiramente executamos o comando 
-\small\texttt{SELECT pg\_start\_backup(`my\_backup');}, onde `my\_backup' é um 
-marcador para o seu backup. Neste momento se inicia o backup. A partir daí 
-utilizamos um comando como o tar para fazer o backup convencional e 
-armazenarmos todos os arquivos de dados. Ao terminar a compressão nos 
-conectamos ao banco novamente e realizamos o comando 
-\small\texttt{SELECT pg\_start\_backup(`my\_backup');} para confirmar que o 
-backup já foi realizado.
-
-Supor agora que algo inesperedo aconteceu com o banco e que é necessário a 
-recuperação do banco de dados. Os passos a seguir apresentam o procedimento a 
-ser realizado para a recuperação.
-
-\begin{enumerate}
-  \item Parar a conexão com o banco;
-  \item Remover todos os arquivos na pasta de dados, verificando apenas se existem arquivos de log que não foram arquivados;
-  \item Recuperar os arquivos base de backup;
-  \item Remover os arquivos presentes na pasta pg\_xlog/;
-  \item Caso existam arquivos de log não arquivados copiar manualmente para a pasta pg\_xlog/;
-  \item Criar um arquivo de recuperação (recovery.conf) no diretório de dados. O arquivo de recuperação contém o seguinte comando: \small\texttt{restore\_command = `cp /mnt/server/archivedir/\%f \%p'};
-  \item Reiniciar o servidor de banco de dados. Ele iniciará em modo de recuperação e ao finalizar renomeará o arquivo de recuperação para recovery.done;
-  \item Inspecionar o conteúdo do banco. Caso algo esteja faltando, repetir o processo novamente;
-\end{enumerate}
-
-A aplicação então garante ao usuário final a consistência e a segurança dos seus dados.
-
 \section{Gerenciamento} \label{sec:management}
 
 A ferramenta utilizada para gerenciar o projeto de software é o Github. A url 
 para visualização das tarefas é 
-https://github.com/marcoafilho/my-last-project/issues. A ferramenta não conta com funcionalidades avançadas, serve de suporte para o desenvolvimento.
+https://github.com/marcoafilho/my-last-project/issues. A ferramenta não conta com funcionalidades avançadas, serve apenas de suporte para o desenvolvimento.
 
-A metodologia seguida é baseada nos modelos de gerenciamento de projetos open source. São definidos objetivos para cada versão e as tarefas para alcançar os objetivos são descritas. No total, o software está planejado para ser desenvolvido em seis versões e se encontra atualmente na segunda, a etapa de adição de recursos avançandos de banco de dados. Todas as versões são estimadas em uma semana, sendo encerradas sempre na quinta-feira. A seguir estão descritas as versões, contemplando o que já foi desenvolvido, o que está atrasado e o que virá a seguir.
+Para o lançamento da versão 3.0 foram feitas três pequenas iterações chamadas de versões 2.3, 2.5 e 2.8. As iterações estão esclarecidas à seguir.
 
 \begin{description}
-  \item[Versão 1.0: Interface, Mapeamento e Modelagem] \hfill \\
-  Era esperado dessa versão, a criação de protótipos para a interface do sistema e a modelagem do SGBD.
-  
-  Como produtos dessa versão deveriam ser gerados um artigo e uma apresentação da primeira fase do sistema. Esta versão está atrasada, pois os produtos esperados pela finalização desta ainda estão em construção.
-  \item[Versão 2.0: Views, Optimizataion, Stored Procedures, Triggers, Transactions] \hfill \\
-  É esperado dessa versão que a aplicação já acesse os recursos do banco de dados. Funcionalides como \emph{log in}, gerenciamento de projetos e de materiais devem estar funcionais.
-  
-  Além disso, é esperado que a aplicação contenha recursos avançados de banco de dados, como a implementação de visões, índices, \emph{stored procedures}, \emph{triggers} e \emph{transactions}.
-  
-  O presente artigo, unido à apresentação e ao software parcialmente funcional são os produtos desta versão. Esta versão foi concluída com sucesso.
   \item[Versão 2.3] \hfill \\
-  Além de serem implementadas técnicas de recuperação e backup, as funcionalidades básicas do software devem ser implementadas.
+  Nesta versão foi finalizada a programação de recursos para a plataforma, como a recomendação de referências e a página de estudantes.
+  Foram também implementadas as técnicas de \emph{backup} e recuperação.
   \item[Versão 2.5] \hfill \\
   Etapa de implementação de práticas de segurança e autorização.
   \item[Versão 2.8] \hfill \\
   Os recursos serão exportados para outros formatos de dados, XML por exemplo.
   \item[Versão 3.0] \hfill \\
-  Versão final do software. Consta da preparação de um relatório de testes realizados com a aplicação.
-  
-  É esperada nessa versão que o software esteja completamente desenvolvido e que esteja seguro.
-  
-  Os produtos dessa versão são: Um relatório de testes mais um artigo, um seminário e a publicação do software em um link externo.
+  Implementação da auditoria e incorporação de todos os outros módulos. Como artefatos dessa iteração constam o presente artigo mais uma apresentação de slides.
 \end{description}
+
+A versão 3.0 não foi concluída por completo, pois ainda é necessário desenvolver a auditoria para modelos que seguem o relacionamento muitos para muitos. Independente disso, a aplicação possui um conjunto de funcionalidades importantes e já pode ser considerada usável.
 
 \end{document}

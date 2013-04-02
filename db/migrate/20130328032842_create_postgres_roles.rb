@@ -1,10 +1,32 @@
 class CreatePostgresRoles < ActiveRecord::Migration
   def up
-    execute "CREATE ROLE guests WITH LOGIN;"
+    execute "
+      DO
+      $body$
+      BEGIN
+        IF NOT EXISTS (SELECT *
+          FROM pg_catalog.pg_roles
+          WHERE rolname = 'guests') THEN
+          CREATE ROLE guests WITH LOGIN;
+        END IF;
+      END
+      $body$
+    "
     execute "GRANT SELECT, INSERT ON users TO guests;"
     execute "GRANT USAGE, SELECT ON SEQUENCE users_id_seq TO guests;"
     
-    execute "CREATE ROLE students;"
+    execute "
+    DO
+    $body$
+    BEGIN
+      IF NOT EXISTS (SELECT *
+        FROM pg_catalog.pg_roles
+        WHERE rolname = 'students') THEN
+        CREATE ROLE students;
+      END IF;
+    END
+    $body$
+    "
     execute "
       GRANT ALL ON users TO students;
       GRANT SELECT, INSERT ON notifications TO students;
@@ -16,7 +38,18 @@ class CreatePostgresRoles < ActiveRecord::Migration
       tasks_id_seq, resources_id_seq, quotations_id_seq, notes_id_seq, authors_id_seq TO students;
     "
     
-    execute "CREATE ROLE professors;"
+    execute "
+    DO
+    $body$
+    BEGIN
+      IF NOT EXISTS (SELECT *
+        FROM pg_catalog.pg_roles
+        WHERE rolname = 'professors') THEN
+        CREATE ROLE professors;
+      END IF;
+    END
+    $body$
+    "
     execute "
       GRANT ALL ON users TO professors;
       GRANT SELECT, INSERT ON notifications TO professors;

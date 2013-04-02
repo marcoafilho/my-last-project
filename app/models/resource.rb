@@ -3,9 +3,9 @@ class Resource < ActiveRecord::Base
   
   belongs_to :user
   has_and_belongs_to_many :authors
-  has_many :quotations
-  has_many :notes
-  has_many :user_recommended_resources
+  has_many :quotations, dependent: :destroy
+  has_many :notes, dependent: :destroy
+  has_many :user_recommended_resources, dependent: :destroy
   
   accepts_nested_attributes_for :authors, reject_if: lambda { |a| a[:name].blank? }, allow_destroy: true
   accepts_nested_attributes_for :quotations, reject_if: lambda { |a| a[:text].blank? }, allow_destroy: true
@@ -23,6 +23,7 @@ class Resource < ActiveRecord::Base
   mount_uploader :file, FileUploader
   
   audited
+  has_associated_audits
   
   def autosave_associated_records_for_authors
     self.authors = authors.collect {|a| a = Author.find_or_create_by_name(a.name) }

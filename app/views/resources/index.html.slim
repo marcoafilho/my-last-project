@@ -26,7 +26,7 @@ h1= t('.title')
           td.span1
             .btn-group
               - if current_user.student?
-                = link_to recommended_resources_path(user_recommended_resource: { resource_id: resource.id, professor_id: current_user.professor.id }), \
+                = link_to recommended_resources_path(user_recommended_resource: { resource_id: resource.id, recommended_id: current_user.professor.id }), \
                   class: "btn btn-small btn-info recommend-modal", method: :post do
                   = t('general.actions.recommend')
               - elsif current_user.professor?
@@ -48,7 +48,7 @@ h1= t('.title')
         li= link_to t(".new.book"), new_resource_path(resource_type: "Book")
         li= link_to t(".new.conference"), new_resource_path(resource_type: "Conference")
         li= link_to t(".new.electronic"), new_resource_path(resource_type: "Electronic")
-    = link_to t('general.actions.recommended'), recommended_resources_path, class: 'btn btn-info mgn-left'
+    = link_to t('general.actions.recommended'), recommended_resources_path, class: 'btn btn-success mgn-left'
     .btn.btn-inverse.mgn-left.import-file data-toggle="modal"
       = t('general.actions.import')
 = export
@@ -74,7 +74,7 @@ h1= t('.title')
       = form_for :user_recommended_resource, url: recommended_resources_path do |f|
         p= t('modals.recommend.helper')
         = f.hidden_field :resource_id
-        = f.select :student_id, current_user.students.collect {|p| [ p.name, p.id ] }
+        = f.select :recommended_id, current_user.students.collect {|p| [ p.name, p.id ] }
     .modal-footer
       a href="#" class="btn" data-dismiss="modal"= t('general.action.close')
       a href="#" class="btn btn-primary submit"= t("general.actions.save")

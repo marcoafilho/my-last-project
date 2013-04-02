@@ -15,6 +15,11 @@ ul.nav
       | &nbsp;
       = t('.schedule')
 ul.nav.pull-right
+  li
+    = link_to nil do
+      = image_tag avatar_url(current_user), class: "profile-picture"
+      = current_user.email
+  li.divider-vertical
   li.dropdown
     a href="#" class="dropdown-toggle" data-toggle="dropdown"
       = t('Settings')

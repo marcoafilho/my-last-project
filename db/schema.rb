@@ -90,19 +90,19 @@ ActiveRecord::Schema.define(:version => 20130401021810) do
 
   create_table "resources", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "relevance"
-    t.string   "title"
-    t.string   "type"
-    t.string   "publisher"
-    t.string   "year"
+    t.integer  "relevance",   :default => 0
+    t.string   "title",                       :null => false
+    t.string   "type",                        :null => false
+    t.string   "publisher",   :default => ""
+    t.string   "year",        :default => ""
     t.string   "file"
-    t.string   "issue"
-    t.string   "volume"
+    t.string   "issue",       :default => ""
+    t.string   "volume",      :default => ""
     t.integer  "isbn"
     t.date     "accessed_at"
     t.date     "read_at"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   add_index "resources", ["title"], :name => "index_resources_on_title"
@@ -122,14 +122,14 @@ ActiveRecord::Schema.define(:version => 20130401021810) do
   add_index "tasks", ["title"], :name => "index_tasks_on_title"
 
   create_table "user_recommended_resources", :force => true do |t|
-    t.integer  "professor_id", :null => false
-    t.integer  "student_id",   :null => false
-    t.integer  "resource_id",  :null => false
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.integer  "recommender_id", :null => false
+    t.integer  "recommended_id", :null => false
+    t.integer  "resource_id",    :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
-  add_index "user_recommended_resources", ["professor_id", "student_id", "resource_id"], :name => "index_user_recommended_resources_on_prof_stud_res_id", :unique => true
+  add_index "user_recommended_resources", ["recommender_id", "recommended_id", "resource_id"], :name => "index_user_recommended_resources_on_recommended_res_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.integer  "project_id"

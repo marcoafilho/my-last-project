@@ -20,13 +20,12 @@ h1= t('.title')
       - @recommended_resources.each do |resource|
         tr
           td.span1= resource.type
-          td.span6= link_to resource.title, resource_path(resource)
+          td.span6= link_to resource.title, recommended_resource_path(resource)
           th.span1= display_relevance(resource.relevance)
           td.span4= display_authors(resource)
           td.span1
             .btn-group
-              = link_to t('general.actions.edit'), edit_resource_path(resource), class: "btn btn-small"
-              = link_to t('general.actions.destroy'), resource_path(resource), data: { confirm: t("general.actions.destroy_alert") }, method: :delete, class: "btn btn-small btn-danger"
+              = link_to t('general.actions.edit'), edit_recommended_resource_path(resource), class: "btn btn-small"
 - else
   .no-records
     = t('.no_records_found')
@@ -42,5 +41,5 @@ h1= t('.title')
         li= link_to t(".new.book"), new_resource_path(resource_type: "Book")
         li= link_to t(".new.conference"), new_resource_path(resource_type: "Conference")
         li= link_to t(".new.electronic"), new_resource_path(resource_type: "Electronic")
-    = link_to t('general.actions.my_resources'), resources_path, class: 'btn btn-info mgn-left'
+    = link_to t('general.actions.my_resources'), resources_path, class: 'btn btn-success mgn-left'
 = export

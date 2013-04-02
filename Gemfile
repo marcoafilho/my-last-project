@@ -21,6 +21,7 @@ gem 'slim-rails', '1.1.0'
 gem 'twitter-bootstrap-rails', '2.2.4'
 
 # XML parser
+gem 'htmlentities'
 gem 'nokogiri'
 
 # Audit

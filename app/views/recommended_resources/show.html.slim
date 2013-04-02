@@ -72,7 +72,6 @@ h1.text-center= @resource.title
         = t('.tabs.quotations.no_record')
 .form-actions
   = link_to t('general.actions.back'), :back, class: "mgn-small btn"
-  = link_to t('general.actions.edit'), edit_resource_path(@resource), class: "mgn-small btn btn-warning"
-  = link_to t('general.actions.destroy'), resource_path(@resource), data: { confirm: t("general.actions.destroy_alert") }, method: :destroy, class: "mgn-small btn btn-danger"
-  = link_to t('.versions'), audit_resource_path(@resource), class: "mgn-small btn btn-primary"
+  = link_to t('general.actions.edit'), edit_recommended_resource_path(@resource), class: "mgn-small btn btn-warning"
+  = link_to t('.versions'), audit_recommended_resource_path(@resource), class: "mgn-small btn btn-primary"
 = export

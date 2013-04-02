@@ -7,19 +7,19 @@ class CreateResources < ActiveRecord::Migration
       t.string :title, null: false
       t.string :type, null: false
 
-      t.string :publisher, default: nil
-      t.string :year, default: nil
+      t.string :publisher, default: ""
+      t.string :year, default: ""
       t.string :file
       
       # Article specific
-      t.string :issue, default: nil
-      t.string :volume, default: nil
+      t.string :issue, default: ""
+      t.string :volume, default: ""
       
       # Book specific
-      t.integer :isbn, default: nil
+      t.integer :isbn
 
       # Electronics specific
-      t.date :accessed_at, default: nil
+      t.date :accessed_at
 
       t.date :read_at
       t.timestamps

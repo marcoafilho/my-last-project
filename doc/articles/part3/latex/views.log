@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.4.1)  31 MAR 2013 15:42
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.4.1)  2 APR 2013 11:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -260,107 +260,98 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/it' tried instead on input line 27.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <13> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 41.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 80.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 80.
  [1
 
 {/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (72.52805pt too wide) in paragraph at lines 100--100
+Underfull \hbox (badness 1178) in paragraph at lines 90--94
+[]\OT1/ptm/m/n/12 Primeiramente, []e im-por-tante garan-tir que o ar-quiv-a-men
+to dos ar-quivos de
+ []
+
+
+Overfull \hbox (59.38806pt too wide) in paragraph at lines 100--100
+[]  \OT1/pcr/m/n/10.95 'test ! -f /mnt/server/archivedir/%f && cp %p /mnt/serve
+r/archivedir/%f'[] 
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 120.
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--141
+[]\OT1/ptm/m/n/10.95 Para o ar-quivo de recupera[][]ao []e im-pre-scind[]^^Pvel
+ o seguinte co-mando:
+ []
+
+[2]
+Overfull \hbox (72.52805pt too wide) in paragraph at lines 182--182
 []\OT1/pcr/m/n/10.95 GRANT ALL ON tasks, resources, quotations, notes, authors,
  authors_resources[] 
  []
 
 
-Overfull \hbox (13.39812pt too wide) in paragraph at lines 100--100
+Overfull \hbox (13.39812pt too wide) in paragraph at lines 182--182
 []\OT1/pcr/m/n/10.95 GRANT USAGE, SELECT ON SEQUENCE users_id_seq, notification
 s_id_seq,[] 
  []
 
 
-Overfull \hbox (6.82813pt too wide) in paragraph at lines 100--100
+Overfull \hbox (6.82813pt too wide) in paragraph at lines 182--182
 []  \OT1/pcr/m/n/10.95 tasks_id_seq, resources_id_seq, quotations_id_seq, notes
 _id_seq,[] 
  []
 
 
-Overfull \hbox (19.96811pt too wide) in paragraph at lines 100--100
+Overfull \hbox (19.96811pt too wide) in paragraph at lines 182--182
 []\OT1/pcr/m/n/10.95 GRANT ALL ON projects, tasks, resources, quotations, notes
 , authors,[] 
  []
 
 
-Overfull \hbox (13.39812pt too wide) in paragraph at lines 100--100
+Overfull \hbox (13.39812pt too wide) in paragraph at lines 182--182
 []\OT1/pcr/m/n/10.95 GRANT USAGE, SELECT ON SEQUENCE users_id_seq, notification
 s_id_seq,[] 
  []
 
 
-Overfull \hbox (26.5381pt too wide) in paragraph at lines 100--100
+Overfull \hbox (26.5381pt too wide) in paragraph at lines 182--182
 []  \OT1/pcr/m/n/10.95 projects_id_seq, tasks_id_seq, resources_id_seq, quotati
 ons_id_seq,[] 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 118.
-
-(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omsptm.fd
-File: omsptm.fd 
-)
+[3]
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 118.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 135.
- [2] [3]
-Overfull \hbox (59.38806pt too wide) in paragraph at lines 229--229
-[]  \OT1/pcr/m/n/10.95 'test ! -f /mnt/server/archivedir/%f && cp %p /mnt/serve
-r/archivedir/%f'[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 236--244
-[]\OT1/ptm/m/n/10.95 Primeiramente ex-e-cu-ta-mos o co-mando \OT1/pcr/m/n/10.95
- SELECT
- []
-
-
-Underfull \hbox (badness 3029) in paragraph at lines 236--244
-\OT1/pcr/m/n/10.95 pg[]start[]backup(`my[]backup');\OT1/ptm/m/n/10.95 , onde `m
-y[]backup' []e um mar-cador para o seu
- []
-
-
-Underfull \hbox (badness 1552) in paragraph at lines 255--256
-[]\OT1/ptm/m/n/10.95 Criar um ar-quivo de recupera[][]ao (re-cov-ery.conf) no d
-i-ret[]orio de da-dos. O ar-
- []
-
-
-Underfull \hbox (badness 1259) in paragraph at lines 255--256
-\OT1/ptm/m/n/10.95 quivo de recupera[][]ao cont[]em o seguinte co-mando: \OT1/p
-cr/m/n/10.95 restore[]command = `cp
- []
-
-[4]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 200.
+ [4]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 271.
- [5] (./views.aux) ) 
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 311.
+ [5] [6] (./views.aux) ) 
 Here is how much of TeX's memory you used:
- 2606 strings out of 493633
- 37206 string characters out of 3143378
- 103025 words of memory out of 3000000
- 5862 multiletter control sequences out of 15000+200000
+ 2611 strings out of 493633
+ 37266 string characters out of 3143378
+ 103041 words of memory out of 3000000
+ 5867 multiletter control sequences out of 15000+200000
  24514 words of font info for 51 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 37i,8n,28p,580b,310s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/base/8r
-.enc}</usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pf
-b></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
-></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/l
-ocal/texlive/2011/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texli
-ve/2011/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2011/t
-exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2011/texmf-dist/
-fonts/type1/urw/times/utmri8a.pfb>
-Output written on views.pdf (5 pages, 103400 bytes).
+ 37i,8n,28p,291b,310s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/bas
+e/8r.enc}</usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+8.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></u
+sr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/t
+exlive/2011/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/20
+11/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2011/texmf-d
+ist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on views.pdf (6 pages, 104134 bytes).
 PDF statistics:
- 49 PDF objects out of 1000 (max. 8388607)
- 34 compressed objects within 1 object stream
+ 52 PDF objects out of 1000 (max. 8388607)
+ 36 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

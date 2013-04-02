@@ -6,7 +6,7 @@ en:
     attributes:
       task:
         in_progress: In progress
-        in_progress_count: '#'
+        in_progress_count: '# of tasks'
   dashboards:
     professor:
       title: Your dashboard
@@ -36,6 +36,7 @@ en:
   general:
     actions:
       title: Actions
+      at: at
       close: Close
       destroy: Destroy
       destroy_alert: "Are you sure?"
@@ -66,6 +67,9 @@ en:
     import:
       title: Import an XML file
       helper: Select an XML file to import.
+    recommend:
+      title: Recommend a resource
+      helper: Who would you like to recommend this resource?
   notifications:
     projects:
       subscription: A new student has subscribed to one of your projects.
@@ -94,10 +98,55 @@ en:
     show:
       students: "Students (%{count})"
   recommended_resources:
+    audit:
+      table:
+        value:
+          original: Value
+          from: Changed from
+          to: to
+      title: Versions
+    author_fields:
+      author_name: Author name
     create:
       successful: Your recommended resource was succesfully saved.
       unsuccessful: Your recommended resource could not be saved. Try again.
+    edit:
+      title: "Edit %{resource_type}"
+    form:
+      tabs:
+        general: 
+          title: General info
+        quotations: 
+          title: Quotations
+        notes: 
+          title: Notes
+    import:
+      successful: Your resources were successfully imported.
+    index:
+      title: Resources
+      no_records_found: No resources were found. Create one!
+    new:
+      title: "New %{resource_type}"
+    show:
+      tabs:
+        general: 
+          title: General info
+        quotations: 
+          title: Quotations
+          no_record: There are no registered quotations.
+        notes: 
+          title: Notes
+          no_record: There are no registered notes.
+    update:
+      successful: "Your recommended resource was successfully updated."
   resources:
+    audit:
+      table:
+        value:
+          original: Value
+          from: Changed from
+          to: to
+      title: Versions
     author_fields:
       author_name: Author name
     create:
